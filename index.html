@@ -4,19 +4,16 @@
     <meta charset="utf-8">
     <title>Koda</title>
     <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <link rel="stylesheet" type="text/css" href="lib/highlight/styles/default.css">
 </head>
 <body>
+    <script type="text/javascript" src="lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
     <h1>Koda</h1>
     <div id="affichage">
         Affichage
     </div>
-    <div id="saisie">alert("Hello World!");</div>
-
-    <script src="lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
-<script>
-    var editor = ace.edit("saisie");
-    editor.setTheme("ace/theme/monokai");
-    editor.getSession().setMode("ace/mode/javascript");
-</script>
+    <div id="saisie"><pre><code class="javascript">alert("Hello World!");
+    </code></pre></div>
 </body>
 </html>
