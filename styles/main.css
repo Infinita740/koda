@@ -12,6 +12,7 @@ body
     float: left;
     /*background-color: yellow;*/
     margin-right: 10px;
+    border: dotted;
 }
 
 #saisie
