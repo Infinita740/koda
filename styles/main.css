@@ -6,18 +6,18 @@ body
 
 #affichage
 {
-    width: 30%;
+    width: 500px;
     height: 400px;
     display: inline-block;
     float: left;
-    background-color: limegreen;
+    /*background-color: yellow;*/
     margin-right: 10px;
 }
 
 #saisie
 {
-    width: 60%;
-    height: 400px;
+    /*width: 60%;*/
+    /*height: 400px;*/
     /*display: inline-block;*/
     /*background-color: red;*/
 }
