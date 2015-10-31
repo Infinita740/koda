@@ -10,7 +10,6 @@ body
     height: 400px;
     display: inline-block;
     float: left;
-    /*background-color: yellow;*/
     margin-right: 10px;
     border: dotted;
 }
