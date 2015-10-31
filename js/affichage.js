@@ -1,106 +1,16 @@
 console.log("== début affichage ==");
 var canvas = document.getElementById("affichage");
 
-//var MAX_WIDTH=500;
-//var MAX_HEIGHT=500;
+var MAX_WIDTH=500;
+var MAX_HEIGHT=500;
 
-canvas.width=500;
-canvas.height=500;
+canvas.width=MAX_WIDTH;
+canvas.height=MAX_HEIGHT;
 //canvas.style.backgroundColor='white';
 
 console.log(canvas.height);
 
 var ctx = canvas.getContext("2d");
-//fond
-ctx.beginPath();
-ctx.moveTo(0,0);
-ctx.lineTo(0,500);
-ctx.lineTo(500,500);
-ctx.lineTo(500,0);
-ctx.lineWidth = 1;
-ctx.fill();
-
-//chemin
-ctx.beginPath();
-ctx.moveTo(0,0);
-ctx.lineTo(25,0);
-ctx.lineTo(25,75);
-ctx.lineTo(0,75);
-ctx.fillStyle = "green";
-ctx.fill();
-
-ctx.beginPath();
-ctx.moveTo(25,25);
-ctx.lineTo(475,25);
-ctx.lineTo(475,50);
-ctx.lineTo(25,50);
-ctx.fillStyle = "white";
-ctx.fill();
-
-ctx.beginPath();
-ctx.moveTo(450,25);
-ctx.lineTo(475,25);
-ctx.lineTo(475,475);
-ctx.lineTo(450,475);
-ctx.fillStyle = "white";
-ctx.fill();
-
-ctx.beginPath();
-ctx.moveTo(250,475);
-ctx.lineTo(250,450);
-ctx.lineTo(450,450);
-ctx.lineTo(450,475);
-ctx.fillStyle = "white";
-ctx.fill();
-
-ctx.beginPath();
-ctx.moveTo(250,250);
-ctx.lineTo(275,250);
-ctx.lineTo(275,475);
-ctx.lineTo(250,475);
-ctx.fillStyle = "white";
-ctx.fill();
-
-ctx.beginPath();
-ctx.moveTo(250,250);
-ctx.lineTo(375,250);
-ctx.lineTo(375,275);
-ctx.lineTo(250,275);
-ctx.fillStyle = "white";
-ctx.fill();
-
-ctx.beginPath();
-ctx.moveTo(375,250);
-ctx.lineTo(375,150);
-ctx.lineTo(350,150);
-ctx.lineTo(350,250);
-ctx.fillStyle = "white";
-ctx.fill();
-
-ctx.beginPath();
-ctx.moveTo(375,125);
-ctx.lineTo(125,125);
-ctx.lineTo(125,150);
-ctx.lineTo(375,150);
-ctx.fillStyle = "white";
-ctx.fill();
-
-ctx.beginPath();
-ctx.moveTo(125,125);
-ctx.lineTo(150,125);
-ctx.lineTo(150,350);
-ctx.lineTo(125,350);
-ctx.fillStyle = "white";
-ctx.fill();
-
-ctx.beginPath();
-ctx.moveTo(100,350);
-ctx.lineTo(100,400);
-ctx.lineTo(175,400);
-ctx.lineTo(175,350);
-ctx.fillStyle = "red";
-ctx.fill();
-
 
 var now,
     then = new Date().getTime(),
@@ -130,6 +40,7 @@ function moveRight() {
     // console.log(delta);
     
     ctx.clearRect(0, 0, MAX_WIDTH, MAX_HEIGHT);
+    drawLevel1();
     var c = circle;
     c.draw();
     c.x += calcSpeed(delta, 5);
@@ -150,6 +61,99 @@ var calcSpeed = function(del, speed) {
 var animloop = function() {
     requestAnimationFrame(animloop);
     moveRight();
+}
+
+function drawLevel1(){
+    //fond
+    ctx.beginPath();
+    ctx.moveTo(0,0);
+    ctx.lineTo(0,500);
+    ctx.lineTo(500,500);
+    ctx.lineTo(500,0);
+    ctx.lineWidth = 1;
+    ctx.fillStyle = "black";
+    ctx.fill();
+
+    //chemin
+    ctx.beginPath();
+    ctx.moveTo(0,0);
+    ctx.lineTo(25,0);
+    ctx.lineTo(25,75);
+    ctx.lineTo(0,75);
+    ctx.fillStyle = "green";
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(25,25);
+    ctx.lineTo(475,25);
+    ctx.lineTo(475,50);
+    ctx.lineTo(25,50);
+    ctx.fillStyle = "white";
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(450,25);
+    ctx.lineTo(475,25);
+    ctx.lineTo(475,475);
+    ctx.lineTo(450,475);
+    ctx.fillStyle = "white";
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(250,475);
+    ctx.lineTo(250,450);
+    ctx.lineTo(450,450);
+    ctx.lineTo(450,475);
+    ctx.fillStyle = "white";
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(250,250);
+    ctx.lineTo(275,250);
+    ctx.lineTo(275,475);
+    ctx.lineTo(250,475);
+    ctx.fillStyle = "white";
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(250,250);
+    ctx.lineTo(375,250);
+    ctx.lineTo(375,275);
+    ctx.lineTo(250,275);
+    ctx.fillStyle = "white";
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(375,250);
+    ctx.lineTo(375,150);
+    ctx.lineTo(350,150);
+    ctx.lineTo(350,250);
+    ctx.fillStyle = "white";
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(375,125);
+    ctx.lineTo(125,125);
+    ctx.lineTo(125,150);
+    ctx.lineTo(375,150);
+    ctx.fillStyle = "white";
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(125,125);
+    ctx.lineTo(150,125);
+    ctx.lineTo(150,350);
+    ctx.lineTo(125,350);
+    ctx.fillStyle = "white";
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(100,350);
+    ctx.lineTo(100,400);
+    ctx.lineTo(175,400);
+    ctx.lineTo(175,350);
+    ctx.fillStyle = "red";
+    ctx.fill();
 }
 
 animloop();
