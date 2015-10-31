@@ -20,9 +20,9 @@ var now,
 var circle = {
     // Basic attributes
     x: 0,
-    y: 10,
+    y: 37,
     radius: 5,
-    color: "yellow",
+    color: "blue",
     
     // Function to draw the circle
     draw : function() {
@@ -71,7 +71,7 @@ function drawLevel1(){
     ctx.lineTo(500,500);
     ctx.lineTo(500,0);
     ctx.lineWidth = 1;
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "gray";
     ctx.fill();
 
     //chemin
@@ -154,6 +154,28 @@ function drawLevel1(){
     ctx.lineTo(175,350);
     ctx.fillStyle = "red";
     ctx.fill();
+	
+		//quadrillage
+	var i=25;
+	while(i<500){
+		ctx.beginPath();
+		ctx.moveTo(i,0);
+		ctx.lineTo(i,500);
+		ctx.lineWidth=0.75;
+		ctx.strokeStyle="black";
+		ctx.stroke();
+		i=i+25;
+	}
+	var g = 25;
+	while(g<500){
+		ctx.beginPath();
+		ctx.moveTo(0,g);
+		ctx.lineTo(500,g);
+		ctx.lineWidth=0.75;
+		ctx.strokeStyle="black";
+		ctx.stroke();
+		g=g+25;
+	}
 }
 
 animloop();
