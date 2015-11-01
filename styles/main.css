@@ -27,7 +27,7 @@ body
 #saisieaffichage
 {
 	float: left;
-    width: 555px;
+    width: 555px; /*a changer en % de la page*/
 	height: 490px;
 	display: inline-block;
 }
@@ -36,7 +36,7 @@ body
 {
 	text-align: center;
     float: right;
-    width: 333px;
+    width: 333px; /*a changer en % de la page*/
 	height: 550px;
     /*display: inline-block;*/
     background-color: blue;
