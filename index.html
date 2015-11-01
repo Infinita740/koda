@@ -8,13 +8,24 @@
 </head>
 <body>    
     <h1>Koda</h1>
-    <canvas id="affichage"></canvas>
-    <div id="saisie"><pre><code class="javascript">alert("Hello World!");
-    </code></pre></div>
+		<canvas id="affichage"></canvas>
+		
+	<div id="saisie"><pre><code class="javascript">alert("Hello World!");
+		</code></pre>
+		<canvas id="saisieaffichage"></canvas>
+	</div>
+
+	<div id="block"><pre><code class="javascript">alert("Emplacement pour les blocs");
+		</code></pre>
+		<canvas id="blockaffichage"></canvas>
+	</div>
 
     <script type="text/javascript" src="lib/highlight/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <script type="text/javascript" src="js/affichage.js"></script>
+	<script type="text/javascript" src="js/saisieaffichage.js"></script>
+	<script type="text/javascript" src="js/blockaffichage.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+	
 </body>
 </html>
