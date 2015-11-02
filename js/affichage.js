@@ -57,6 +57,7 @@ var animloop = function(){
     moveRight();
 }
  
+ var level = JSON.parse(level1);
 function drawLevel1(){
     
 	//fond
@@ -70,12 +71,13 @@ function drawLevel1(){
     ctx.fill();
 
     //chemin
+	
     ctx.beginPath();
-    ctx.moveTo(0,0);
-    ctx.lineTo(25,0);
-    ctx.lineTo(25,75);
-    ctx.lineTo(0,75);
-    ctx.fillStyle = "green";
+    ctx.moveTo(level.moveTo[0],level.moveTo[1]);
+    ctx.lineTo(level.lineTo1[0],level.lineTo1[1]);
+    ctx.lineTo(level.lineTo2[0],level.lineTo2[1]);
+    ctx.lineTo(level.lineTo3[0],level.lineTo3[1]);
+    ctx.fillStyle = level.color;
     ctx.fill();
 
     ctx.beginPath();
