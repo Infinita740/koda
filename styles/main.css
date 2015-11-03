@@ -6,12 +6,12 @@ body
 
 #affichage
 {
-    float: left;
-	width: 400px;
-    height: 400px;
-	display: inline-block;
-    margin-right: 40px;
-    /*border: 1px solid black;*/
+  float: left;
+  width: 400px;
+  height: 400px;
+  display: inline-block;
+  margin-right: 40px;
+  /*border: 1px solid black;*/
 }
 
 #saisie
@@ -21,7 +21,7 @@ body
     width: 555px;
 	height: 550px;
     /*display: inline-block;*/
-    background-color: red;
+    background-color: limegreen;
 	border: 1px solid black;
 }
 #saisieaffichage
@@ -39,7 +39,7 @@ body
     width: 333px; /*a changer en % de la page*/
 	height: 550px;
     /*display: inline-block;*/
-    background-color: blue;
+    background-color: lightblue;
 	border: 1px solid black;
 }
 #blockaffichage
