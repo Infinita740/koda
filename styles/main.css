@@ -64,5 +64,10 @@ pre
    	background-color: #822520;
    	border: 4px solid #3D110F;
    	cursor: move;
-   	margin: 3px;
+    margin:5px;
+}
+
+#invisible
+{
+  display: none;
 }

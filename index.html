@@ -17,11 +17,13 @@
 	</div>
 
 	<div id="block" ondrop="drop(event)" ondragover="allowDrop(event)">Emplacement pour les blocs de base.
-            <div class="action" draggable="true" ondragstart="drag(event)" id="avancer">avancer</div>
-            <div class="action" draggable="true" ondragstart="drag(event)" id="reculer">reculer</div>
-            <div class="action" draggable="true" ondragstart="drag(event)" id="tourner">tourner</div>
-            <div class="action" draggable="true" ondragstart="drag(event)" id="tantque">tant que</div>
+            <div class="action" draggable="true" ondragstart="drag_clone(event)" id="avancer">avancer</div>
+            <div class="action" draggable="true" ondragstart="drag_clone(event)" id="reculer">reculer</div>
+            <div class="action" draggable="true" ondragstart="drag_clone(event)" id="tourner">tourner</div>
+            <div class="action" draggable="true" ondragstart="drag_clone(event)" id="tantque">
+            tant que</div>
 	</div>
+    <div id="invisible"></div>
 
 	<script type="text/javascript" src="levels/level1.js"></script>
     <script type="text/javascript" src="js/drag.js"></script>
