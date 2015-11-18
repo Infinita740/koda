@@ -12,10 +12,12 @@ var now,
     then = new Date().getTime(),
     delta;
 
-var circle = {
+var perso = {
     // Basic attributes
     x: 0,
     y: 37,
+    old_x:0,
+    old_y:37,
     radius: 5,
     color: "blue",
     
@@ -36,26 +38,44 @@ function moveRight(){
     
     ctx.clearRect(0, 0, MAX_WIDTH, MAX_HEIGHT);
     drawLevel(1);
-    var c = circle;
+    var c = perso;
     c.draw();
+
     c.x += calcSpeed(delta, 5);
     
-    if(c.x - c.radius > MAX_WIDTH)
-    {
-        console.log("redémarrage");
-        c.x = -c.radius;
-    }
-    
     then = now;
+    if(c.x - c.old_x >= 24)
+    {
+        c.old_x = c.x;
+        console.log("+1 case");
+        return 1;
+    }
+
+    return 0;
 }
 
 var calcSpeed = function(del, speed){
     return (speed * 60 * del) / 1000;
 }
 
+var count=0;
+
 var animloop = function(){
+    if (count < 8) {
+        count+=moveRight();
+    }
+    else{
+        stop_anim();
+    }
     requestAnimationFrame(animloop);
-    moveRight();
+}
+
+
+var stop_anim = function(){
+    ctx.clearRect(0, 0, MAX_WIDTH, MAX_HEIGHT);
+    drawLevel(1);
+    var c = perso;
+    c.draw();
 }
 
 
