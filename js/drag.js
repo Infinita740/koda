@@ -19,7 +19,6 @@ function drag_clone(ev) {
 
     elem[ev.target.id]+=1;
 
-    console.log(clone);
     document.getElementById("invisible").appendChild(clone);
 }
 
@@ -40,3 +39,14 @@ function drop(ev) {
     };
     
 }
+
+function drop_delete(ev){
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("id_drag");
+    var parent = document.getElementById("saisie");
+    
+    console.log(parent);
+
+    var child = document.getElementById(data);
+    saisie.removeChild(child);
+}   

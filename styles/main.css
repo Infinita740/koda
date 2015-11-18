@@ -71,3 +71,14 @@ pre
 {
   display: none;
 }
+
+#corbeille
+{
+  width:5%;
+  border: 1px;
+  border-style:solid;
+  display: inline-block;
+  background-color: limegreen;
+  margin: 10px;
+  padding:10px;
+}
