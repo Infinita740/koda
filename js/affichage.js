@@ -8,10 +8,6 @@ console.log(canvas.height);
 var ctx = canvas.getContext("2d");
 
 
-var now,
-    then = new Date().getTime(),
-    delta;
-
 var perso = {
     // Basic attributes
     x: 0,
@@ -32,36 +28,69 @@ var perso = {
 };
 
 function moveRight(){
-    now = new Date().getTime();
-    delta = now - then;
-    // console.log(delta);
-    
     drawLevel(1);
     var c = perso;
     c.draw();
 
-    c.x += calcSpeed(delta, 5);
+    c.x += 3;
     
-    then = now;
-    if(c.x - c.old_x >= 24)
+    if(c.x - c.old_x >= 25)
     {
         c.old_x = c.x;
-        console.log("+1 case");
         return 1;
     }
 
     return 0;
 }
 
-var calcSpeed = function(del, speed){
-    return (speed * 60 * del) / 1000;
+function moveLeft(){
+    drawLevel(1);
+    var c = perso;
+    c.draw();
+
+    c.x -= 3;
+    
+    if(c.old_x - c.x >= 25)
+    {
+        c.old_x = c.x;
+        return 1;
+    }
+
+    return 0;
 }
 
+
 var count=0;
+var step=0;
+var deplacements = [
+{
+    "droite":3
+},
+{
+    "gauche":2
+},
+{
+    "droite":8
+},
+]
 
 var animloop = function(){
-    if (count < 8) {
-        count+=moveRight();
+    if (count < deplacements.length) {
+        if (deplacements[count].droite != undefined) {
+            deplacements[count].droite-=moveRight();
+            if (deplacements[count].droite<=0) {
+                count+=1;
+            }
+        }
+
+        else if (deplacements[count].gauche != undefined) {
+            deplacements[count].gauche-=moveLeft();
+            if (deplacements[count].gauche==0) {
+                count+=1;
+            }
+
+        }
+        
     }
     else{
         stop_anim();
@@ -71,7 +100,6 @@ var animloop = function(){
 
 
 var stop_anim = function(){
-    
     drawLevel(1);
     var c = perso;
     c.draw();
@@ -130,25 +158,4 @@ function drawLevel(lvl){
 	}
 }
 
-//animloop();
-
-var droite = function(pas){
-    var c = perso;
-    var i=0;
-    c.x-=10;
-    c.old_x=c.x;
-    while(i<pas) {
-        drawLevel(1);
-        c.draw();
-        c.x+=1;
-
-        if(c.x - c.old_x > 24){
-            console.log(i);
-            c.old_x = c.x;
-            i++;
-        }
-    }
-}
-
-droite(3);
-droite(8);
+animloop();
