@@ -158,4 +158,4 @@ function drawLevel(lvl){
 	}
 }
 
-animloop();
+drawLevel(1);
