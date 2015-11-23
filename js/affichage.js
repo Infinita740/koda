@@ -103,7 +103,7 @@ var stop_anim = function(){
     drawLevel(1);
     var c = perso;
     c.draw();
-    requestAnimationFrame(stop_anim);
+    //requestAnimationFrame(stop_anim);
 }
 
 
