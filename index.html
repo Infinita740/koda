@@ -6,7 +6,8 @@
     <link rel="stylesheet" type="text/css" href="styles/main.css">
     <link rel="stylesheet" type="text/css" href="lib/highlight/styles/default.css">
 </head>
-<body>    
+<body> 
+<script type="text/javascript" src="js/main.js"></script>   
     <h1>Koda</h1>
 		<canvas id="affichage"></canvas>
 		
@@ -17,12 +18,23 @@
 	</div>
 
 	<div id="block" ondrop="drop(event)" ondragover="allowDrop(event)">Emplacement pour les blocs de base.
-            <div class="action" draggable="true" ondragstart="drag_clone(event)" id="avancer">avancer</div>
-            <div class="action" draggable="true" ondragstart="drag_clone(event)" id="reculer">reculer</div>
-            <div class="action" draggable="true" ondragstart="drag_clone(event)" id="tourner">tourner</div>
-            <div class="action" draggable="true" ondragstart="drag_clone(event)" id="tantque">
-            tant que</div>
-	</div>
+
+            <div class="action" draggable="true" ondragstart="drag_clone(event)" id="avancer">avancer
+               <script type="text/javascript">generer_select_avancer(20);</script>
+            </div>
+
+            <div class="action" draggable="true" ondragstart="drag_clone(event)" id="reculer">reculer
+                <script type="text/javascript">generer_select_reculer(20);</script>
+            </div>
+
+            <div class="action" draggable="true" ondragstart="drag_clone(event)" id="tourner">tourner
+
+            </div>
+
+            <div class="action" draggable="true" ondragstart="drag_clone(event)" id="tantque">tant que
+            </div>
+    </div>
+
     <div id="corbeille" ondrop="drop_delete(event)" ondragover="allowDrop(event)">corbeille</div>
     <div id="invisible"></div>
 
@@ -31,6 +43,6 @@
     <script type="text/javascript" src="lib/highlight/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <script type="text/javascript" src="js/affichage.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+    
 </body>
 </html>
