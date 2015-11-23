@@ -1,3 +1,12 @@
+	<FORM NAME="Choix">
+		<SELECT NAME="Liste" onChange="">
+			<OPTION VALUE=" ">1
+			<OPTION VALUE=" ">2
+			<OPTION VALUE=" ">3
+			<OPTION VALUE=" ">4
+		</SELECT>
+	</FORM>
+
 var elem = {"avancer" : 1,
             "reculer" : 20,
             "tantque" : 60,
@@ -22,7 +31,7 @@ function drag_clone(ev) {
     document.getElementById("invisible").appendChild(clone);
 }
 
-function drag(ev){
+function drag(ev) {
     ev.dataTransfer.setData("id_drag", ev.target.id);
 }
 
@@ -37,10 +46,9 @@ function drop(ev) {
     if (ev.target.id > 59 || ev.target.id == "saisie") {
         ev.target.appendChild(document.getElementById(data));
     };
-    
 }
 
-function drop_delete(ev){
+function drop_delete(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("id_drag");
     var parent = document.getElementById("saisie");

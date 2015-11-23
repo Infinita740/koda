@@ -36,6 +36,7 @@ function moveRight(){
     delta = now - then;
     // console.log(delta);
     
+    ctx.clearRect(0, 0, MAX_WIDTH, MAX_HEIGHT);
     drawLevel(1);
     var c = perso;
     c.draw();
@@ -71,11 +72,10 @@ var animloop = function(){
 
 
 var stop_anim = function(){
-    
+    ctx.clearRect(0, 0, MAX_WIDTH, MAX_HEIGHT);
     drawLevel(1);
     var c = perso;
     c.draw();
-    requestAnimationFrame(stop_anim);
 }
 
 
@@ -85,7 +85,6 @@ function drawLevel(lvl){
     if (lvl==1) {var level = level1;};
 
 	//fond
-    ctx.clearRect(0, 0, MAX_WIDTH, MAX_HEIGHT);
     ctx.beginPath();
     ctx.moveTo(0,0);
     ctx.lineTo(0,MAX_WIDTH);
@@ -130,25 +129,4 @@ function drawLevel(lvl){
 	}
 }
 
-//animloop();
-
-var droite = function(pas){
-    var c = perso;
-    var i=0;
-    c.x-=10;
-    c.old_x=c.x;
-    while(i<pas) {
-        drawLevel(1);
-        c.draw();
-        c.x+=1;
-
-        if(c.x - c.old_x > 24){
-            console.log(i);
-            c.old_x = c.x;
-            i++;
-        }
-    }
-}
-
-droite(3);
-droite(8);
+animloop();
