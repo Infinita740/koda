@@ -77,16 +77,16 @@ function moveLeft(){
 
 var animloop = function(){
     if (count < deplacements.length) {
-        if (deplacements[count].direction.droite != undefined) {
-            deplacements[count].direction.droite-=moveRight();
-            if (deplacements[count].direction.droite<=0) {
+        if (deplacements[count].droite != undefined) {
+            deplacements[count].droite-=moveRight();
+            if (deplacements[count].droite<=0) {
                 count+=1;
             }
         }
 
-        else if (deplacements[count].direction.gauche != undefined) {
-            deplacements[count].direction.gauche-=moveLeft();
-            if (deplacements[count].direction.gauche==0) {
+        else if (deplacements[count].gauche != undefined) {
+            deplacements[count].gauche-=moveLeft();
+            if (deplacements[count].gauche==0) {
                 count+=1;
             }
 
@@ -173,8 +173,12 @@ function reset_affichage(){
 }
 
 function Deplacement(direction, nombre){
-    this.direction = direction;
-    this.nombre = nombre;
+    if (direction=="droite") {
+        this.droite = nombre;
+    };
+    if (direction=="gauche") {
+        this.gauche = nombre;
+    };
 }
 
 function generer_deplacements()
