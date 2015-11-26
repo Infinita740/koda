@@ -21,15 +21,18 @@
 
 	<div id="block" ondrop="drop(event)" ondragover="allowDrop(event)">Emplacement pour les blocs de base.
 
-            <div class="action" draggable="true" ondragstart="drag_clone(event)" id="avancer">avancer
-               <script type="text/javascript">generer_select_avancer(20);</script>
+            <div class="action" draggable="true" ondragstart="drag_clone(event)" id="droite">droite
+               <script type="text/javascript">generer_select_droite(20);</script>
             </div>
 
-            <div class="action" draggable="true" ondragstart="drag_clone(event)" id="reculer">reculer
-                <script type="text/javascript">generer_select_reculer(20);</script>
+            <div class="action" draggable="true" ondragstart="drag_clone(event)" id="gauche">gauche
+                <script type="text/javascript">generer_select_gauche(20);</script>
             </div>
 
-            <div class="action" draggable="true" ondragstart="drag_clone(event)" id="tourner">tourner
+            <div class="action" draggable="true" ondragstart="drag_clone(event)" id="haut">haut
+
+            </div>
+            <div class="action" draggable="true" ondragstart="drag_clone(event)" id="bas">bas
 
             </div>
 
@@ -39,7 +42,7 @@
 
     <div id="corbeille" ondrop="drop_delete(event)" ondragover="allowDrop(event)">corbeille</div>
     <div id="invisible"></div>
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
     <button onclick="animloop()">Play</button>
     <script type="text/javascript" src="levels/level1.js"></script>
 	<script type="text/javascript" src="levels/level2.js"></script>

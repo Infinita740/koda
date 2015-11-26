@@ -1,7 +1,8 @@
-var elem = {"avancer" : 1,
-            "reculer" : 20,
+var elem = {"droite" : 1,
+            "gauche" : 20,
             "tantque" : 60,
-            "tourner" : 40}
+            "haut" : 40,
+            "tantque" : 80};
 
 function allowDrop(ev) {
     ev.preventDefault();
@@ -29,12 +30,11 @@ function drag(ev){
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("id_drag");
-    /*if (ev.target.id == 'saisie' || ev.target.id == 'tantque'){
-        ev.target.appendChild(document.getElementById(data));
-    }*/
     console.log(data);
     data = String(data);
-    if (ev.target.id > 59 || ev.target.id == "saisie") {
+
+    //valeur hardcodée à changer
+    if (ev.target.id > 100 || ev.target.id == "saisie") {
         ev.target.appendChild(document.getElementById(data));
     };
     
