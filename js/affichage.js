@@ -77,16 +77,16 @@ function moveLeft(){
 
 var animloop = function(){
     if (count < deplacements.length) {
-        if (deplacements[count].droite != undefined) {
-            deplacements[count].droite-=moveRight();
-            if (deplacements[count].droite<=0) {
+        if (deplacements[count].direction.droite != undefined) {
+            deplacements[count].direction.droite-=moveRight();
+            if (deplacements[count].direction.droite<=0) {
                 count+=1;
             }
         }
 
-        else if (deplacements[count].gauche != undefined) {
-            deplacements[count].gauche-=moveLeft();
-            if (deplacements[count].gauche==0) {
+        else if (deplacements[count].direction.gauche != undefined) {
+            deplacements[count].direction.gauche-=moveLeft();
+            if (deplacements[count].direction.gauche==0) {
                 count+=1;
             }
 
@@ -172,28 +172,38 @@ function reset_affichage(){
     perso.y=37;
 }
 
+function Deplacement(direction, nombre){
+    this.direction = direction;
+    this.nombre = nombre;
+}
+
 function generer_deplacements()
 {
     deplacements = [];
-    deplacements = [
-    {
-        "droite":3
-    },
-    {
-        "gauche":2
-    },
-    {
-        "droite":8
-    },
-    ]
-
     var liste = document.getElementById("saisie").childNodes;
+
+    var nom_action;
+    var num_action;
 
     for (var i = 0; i < liste.length; i++) {
         if (liste[i].nodeName=="DIV") {
-            console.log(liste[i].actionPerso);
+            //console.log(liste[i].actionPerso);
+            nom_action = liste[i].actionPerso;
+
+            var opt = liste[i].childNodes[2];
+            for (var j = 0; j < opt.length; j++) {
+                if (opt[j].selected) {
+                    //console.log(opt[j].value); //récupération de la valeur sélectionnée
+                    num_action = parseInt(opt[j].value);
+                };
+            };
+            //ajout du déplacement au tableau
+            var d = new Deplacement(nom_action, num_action);
+            deplacements.push(d);
         };
     };
+
+    console.log(deplacements);
 }
 
 reset_affichage();
