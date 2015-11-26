@@ -60,7 +60,6 @@ function moveLeft(){
     return 0;
 }
 
-
 var count=0;
 var step=0;
 var deplacements = [
@@ -104,6 +103,7 @@ var stop_anim = function(){
     drawLevel(chosen_level);
     var c = perso;
     c.draw();
+    clearInterval();
     //requestAnimationFrame(stop_anim);
 }
 
@@ -160,4 +160,26 @@ function drawLevel(lvl){
 	}
 }
 
-drawLevel(chosen_level);
+function reset_affichage(){
+    count=0;
+    step=0;
+
+    //TODO : générer ce tableau automatiquement
+    deplacements = [
+    {
+        "droite":3
+    },
+    {
+        "gauche":2
+    },
+    {
+        "droite":8
+    },
+    ]
+    drawLevel(chosen_level);
+
+    perso.x=0;
+    perso.y=37;
+}
+
+reset_affichage();
