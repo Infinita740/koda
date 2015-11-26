@@ -13,7 +13,7 @@ var perso = {
     // Basic attributes
     x: 0,
     y: 37,
-    old_x:0,
+    inc_x:0,
     old_y:37,
     radius: 5,
     color: "blue",
@@ -34,14 +34,28 @@ function moveRight(){
     c.draw();
 
     c.x += 3;
+    c.inc_x+=3;
+    testCollision();
     
-    if(c.x - c.old_x >= 25)
+    if(c.inc_x >= 25)
     {
-        c.old_x = c.x;
+        c.inc_x = 0;
         return 1;
     }
 
     return 0;
+}
+
+function testCollision(){
+    var test = ctx.getImageData(perso.x, perso.y, 25, 25);
+
+    for (var i = 0; i >= 25*25; i++) {
+        if(test.data[i] == 128)
+        {
+            alert();
+            break;
+        }
+    };
 }
 
 function moveLeft(){
@@ -50,10 +64,11 @@ function moveLeft(){
     c.draw();
 
     c.x -= 3;
+    c.inc_x+=3;
     
-    if(c.old_x - c.x >= 25)
+    if(c.inc_x >= 25)
     {
-        c.old_x = c.x;
+        c.inc_x = 0;
         return 1;
     }
 
