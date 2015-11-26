@@ -6,6 +6,7 @@ canvas.width=MAX_WIDTH;
 canvas.height=MAX_HEIGHT;
 console.log(canvas.height);
 var ctx = canvas.getContext("2d");
+var chosen_level = 2;
 
 
 var perso = {
@@ -28,7 +29,7 @@ var perso = {
 };
 
 function moveRight(){
-    drawLevel(1);
+    drawLevel(chosen_level);
     var c = perso;
     c.draw();
 
@@ -44,7 +45,7 @@ function moveRight(){
 }
 
 function moveLeft(){
-    drawLevel(1);
+    drawLevel(chosen_level);
     var c = perso;
     c.draw();
 
@@ -100,7 +101,7 @@ var animloop = function(){
 
 
 var stop_anim = function(){
-    drawLevel(1);
+    drawLevel(chosen_level);
     var c = perso;
     c.draw();
     //requestAnimationFrame(stop_anim);
@@ -111,6 +112,7 @@ function drawLevel(lvl){
     
     //choix du niveau ici
     if (lvl==1) {var level = level1;};
+    if (lvl==2) {var level = level2;};
 
 	//fond
     ctx.clearRect(0, 0, MAX_WIDTH, MAX_HEIGHT);
@@ -158,4 +160,4 @@ function drawLevel(lvl){
 	}
 }
 
-drawLevel(1);
+drawLevel(chosen_level);
