@@ -2,7 +2,7 @@ var elem = {"droite" : 1,
             "gauche" : 20,
             "tantque" : 60,
             "haut" : 40,
-            "tantque" : 80};
+            "bas" : 80};
 
 function allowDrop(ev) {
     ev.preventDefault();
@@ -16,6 +16,7 @@ function drag_clone(ev) {
     clone.id=elem[ev.target.id];
     
     clone.ondragstart = drag;
+    clone.actionPerso=ev.target.id; //propriété contenant l'action, pouvant être lue + tard
     //clone.addEventListener("dragstart", drag, false);
 
     elem[ev.target.id]+=1;
@@ -33,7 +34,7 @@ function drop(ev) {
     console.log(data);
     data = String(data);
 
-    //valeur hardcodée à changer
+    //TODO : valeur hardcodée à changer
     if (ev.target.id > 100 || ev.target.id == "saisie") {
         ev.target.appendChild(document.getElementById(data));
     };

@@ -75,20 +75,6 @@ function moveLeft(){
     return 0;
 }
 
-var count=0;
-var step=0;
-var deplacements = [
-{
-    "droite":3
-},
-{
-    "gauche":2
-},
-{
-    "droite":8
-},
-]
-
 var animloop = function(){
     if (count < deplacements.length) {
         if (deplacements[count].droite != undefined) {
@@ -179,7 +165,16 @@ function reset_affichage(){
     count=0;
     step=0;
 
-    //TODO : générer ce tableau automatiquement
+    generer_deplacements();
+    drawLevel(chosen_level);
+
+    perso.x=0;
+    perso.y=37;
+}
+
+function generer_deplacements()
+{
+    deplacements = [];
     deplacements = [
     {
         "droite":3
@@ -191,15 +186,14 @@ function reset_affichage(){
         "droite":8
     },
     ]
-    drawLevel(chosen_level);
 
-    perso.x=0;
-    perso.y=37;
-}
+    var liste = document.getElementById("saisie").childNodes;
 
-function generer_deplacements()
-{
-    deplacements = [];
+    for (var i = 0; i < liste.length; i++) {
+        if (liste[i].nodeName=="DIV") {
+            console.log(liste[i].actionPerso);
+        };
+    };
 }
 
 reset_affichage();
