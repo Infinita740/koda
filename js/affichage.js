@@ -197,4 +197,9 @@ function reset_affichage(){
     perso.y=37;
 }
 
+function generer_deplacements()
+{
+    deplacements = [];
+}
+
 reset_affichage();
