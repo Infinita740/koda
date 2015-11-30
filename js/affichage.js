@@ -11,7 +11,7 @@ var chosen_level = 1;
 
 var perso = {
     // Basic attributes
-    x: 0,
+    x: 25,
     y: 37,
     inc_x:0,
     old_y:37,
@@ -33,8 +33,8 @@ function moveRight(){
     var c = perso;
     c.draw();
 
-    c.x += 3;
-    c.inc_x+=3;
+    c.x += 1;
+    c.inc_x+=1;
     testCollision();
     
     if(c.inc_x >= 25)
@@ -63,8 +63,8 @@ function moveLeft(){
     var c = perso;
     c.draw();
 
-    c.x -= 3;
-    c.inc_x+=3;
+    c.x -= 1;
+    c.inc_x+=1;
     
     if(c.inc_x >= 25)
     {
@@ -168,7 +168,10 @@ function reset_affichage(){
     generer_deplacements();
     drawLevel(chosen_level);
 
-    perso.x=0;
+    var bouton = document.getElementById("reset_button");
+    console.log(bouton);
+
+    perso.x=12;
     perso.y=37;
 }
 
@@ -191,7 +194,6 @@ function generer_deplacements()
 
     for (var i = 0; i < liste.length; i++) {
         if (liste[i].nodeName=="DIV") {
-            //console.log(liste[i].actionPerso);
             nom_action = liste[i].actionPerso;
 
             var opt = liste[i].childNodes[2];
@@ -206,8 +208,10 @@ function generer_deplacements()
             deplacements.push(d);
         };
     };
-
-    console.log(deplacements);
 }
 
 reset_affichage();
+
+for (var i = 0; i < 6; i++) {
+    animloop();
+};
