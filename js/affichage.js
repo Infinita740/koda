@@ -14,7 +14,7 @@ var perso = {
     x: 25,
     y: 37,
     inc_x:0,
-    old_y:37,
+    inc_y:0,
     radius: 5,
     color: "blue",
     
@@ -46,18 +46,6 @@ function moveRight(){
     return 0;
 }
 
-function testCollision(){
-    var test = ctx.getImageData(perso.x, perso.y, 25, 25);
-
-    for (var i = 0; i >= 25*25; i++) {
-        if(test.data[i] == 128)
-        {
-            alert();
-            break;
-        }
-    };
-}
-
 function moveLeft(){
     drawLevel(chosen_level);
     var c = perso;
@@ -75,6 +63,52 @@ function moveLeft(){
     return 0;
 }
 
+function moveUp(){
+    drawLevel(chosen_level);
+    var c = perso;
+    c.draw();
+
+    c.y -= 1;
+    c.inc_y+=1;
+    
+    if(c.inc_y >= 25)
+    {
+        c.inc_y = 0;
+        return 1;
+    }
+
+    return 0;
+}
+
+function moveDown(){
+    drawLevel(chosen_level);
+    var c = perso;
+    c.draw();
+
+    c.y += 1;
+    c.inc_y+=1;
+    
+    if(c.inc_y >= 25)
+    {
+        c.inc_y = 0;
+        return 1;
+    }
+
+    return 0;
+}
+
+function testCollision(){
+    var test = ctx.getImageData(perso.x, perso.y, 25, 25);
+
+    for (var i = 0; i >= 25*25; i++) {
+        if(test.data[i] == 128)
+        {
+            alert();
+            break;
+        }
+    };
+}
+
 var animloop = function(){
     if (count < deplacements.length) {
         if (deplacements[count].droite != undefined) {
@@ -89,13 +123,28 @@ var animloop = function(){
             if (deplacements[count].gauche==0) {
                 count+=1;
             }
+        }
 
+        else if (deplacements[count].haut != undefined) {
+            deplacements[count].haut-=moveUp();
+            if (deplacements[count].haut==0) {
+                count+=1;
+            }
+        }
+
+        else if (deplacements[count].bas != undefined) {
+            deplacements[count].bas-=moveDown();
+            if (deplacements[count].bas==0) {
+                count+=1;
+            }
         }
         
     }
+
     else{
         stop_anim();
     }
+
     requestAnimationFrame(animloop);
 }
 
@@ -181,6 +230,12 @@ function Deplacement(direction, nombre){
     };
     if (direction=="gauche") {
         this.gauche = nombre;
+    };
+    if (direction=="haut") {
+        this.haut = nombre;
+    };
+    if (direction=="bas") {
+        this.bas = nombre;
     };
 }
 
