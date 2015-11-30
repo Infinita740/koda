@@ -6,8 +6,21 @@ canvas.width=MAX_WIDTH;
 canvas.height=MAX_HEIGHT;
 console.log(canvas.height);
 var ctx = canvas.getContext("2d");
-var chosen_level = 2;
+var chosen_level = 1;
 
+
+function levelCounter(){
+    if(typeof(Storage) !== "undefined") 
+    {
+        localStorage['chosen_level'] = chosen_level;
+        alert("Mémorisation effectuée");
+    } 
+
+    else 
+    {
+        alert("localStorage n'est pas supporté");
+    }
+}
 
 var perso = {
     // Basic attributes
