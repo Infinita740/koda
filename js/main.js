@@ -60,3 +60,9 @@ function generer_select_color(nb) {
 	var test = document.getElementById("color");
 	test.appendChild(quelquechose);
 }
+
+generer_select_droite(20);
+generer_select_gauche(20);
+generer_select_haut(20);
+generer_select_bas(20);
+generer_select_color(5);

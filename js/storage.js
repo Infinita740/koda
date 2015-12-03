@@ -1,8 +1,13 @@
 function save_level(){
-    if(typeof(Storage) !== "undefined") 
+    if(typeof(Storage) !== undefined) 
     {
         localStorage['chosen_level'] = chosen_level;
-        alert("Mémorisation effectuée");
+        var nodes = $("#saisie").html();
+        console.log(nodes);
+        var nodes_json = JSON.stringify(nodes);
+        console.log(nodes_json);
+        localStorage.setItem('saisie', nodes_json);
+        //alert("Mémorisation effectuée");
     } 
 
     else 
@@ -16,7 +21,9 @@ function get_level(){
     {
         if(localStorage['chosen_level']!= undefined)
         {
-            alert(localStorage['chosen_level']);
+            //alert(localStorage['chosen_level']);
+            var x = JSON.parse(localStorage['saisie']);
+            $("#saisie").html(x);
         }
     }
     else 

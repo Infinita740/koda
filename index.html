@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="lib/highlight/styles/default.css">
 </head>
 <body> 
-<script type="text/javascript" src="js/main.js"></script>   
+   
     <input type="image" src="images/1rond.png" onclick="chosen_level = 1">
     <input type="image" src="images/2rond.png" onclick="chosen_level = 2">
     <h1>Koda</h1>
@@ -17,8 +17,8 @@
 		<canvas id="affichage"></canvas>
 
         <button onclick="reset_affichage()" id="reset_button">Démarrer ▷</button>
-        <button onclick="save_level()" id="chosen_level" type="button">Save</button> <!-- // bouton pour sauvegarder la progression -->
-        <button onclick="get_level()" id="get_level" type="button">Get level</button>
+        <button onclick="save_level()" id="chosen_level" type="button">Sauvegarder</button> <!-- // bouton pour sauvegarder la progression -->
+        <button onclick="get_level()" id="get_level" type="button">Charger</button>
 
 </div>
 
@@ -35,15 +35,15 @@
 </div>
 
 	<div id="block" ondrop="drop(event)" ondragover="allowDrop(event)">Emplacement pour les blocs de base.
-        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="droite">droite<script type="text/javascript">generer_select_droite(20);</script>
+        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="droite">droite
         </div>
-        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="gauche">gauche<script type="text/javascript">generer_select_gauche(20);</script>
+        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="gauche">gauche
         </div>
-        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="haut">haut<script type="text/javascript">generer_select_haut(20);</script>
+        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="haut">haut
         </div>
-        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="bas">bas<script type="text/javascript">generer_select_bas(20);</script>
+        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="bas">bas
         </div>
-        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="color">Changement couleur<script type="text/javascript">generer_select_color(5);</script>
+        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="color">Changement couleur
         </div>
 
         <div class="action" draggable="true" ondragstart="drag_clone(event)" id="tantque">tant que</div>
@@ -55,7 +55,7 @@
     <div id="invisible"></div>
     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
     
-
+    <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="levels/level1.js"></script>
 	<script type="text/javascript" src="levels/level2.js"></script>
     <script type="text/javascript" src="js/drag.js"></script>
@@ -63,7 +63,9 @@
     <script>hljs.initHighlightingOnLoad();</script>
     <script type="text/javascript" src="js/affichage.js"></script>
     <script type="text/javascript" src="js/affichage2.js"></script>
+    <script type="text/javascript" src="lib/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="js/storage.js"></script>
+    
     
 </body>
 </html>
