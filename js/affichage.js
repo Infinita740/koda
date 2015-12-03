@@ -4,7 +4,6 @@ var MAX_WIDTH=500;
 var MAX_HEIGHT=500;
 canvas.width=MAX_WIDTH;
 canvas.height=MAX_HEIGHT;
-console.log(canvas.height);
 var ctx = canvas.getContext("2d");
 
 var chosen_level = 1;
@@ -216,9 +215,6 @@ function reset_affichage(){
 
     generer_deplacements();
     drawLevel(chosen_level);
-
-    var bouton = document.getElementById("reset_button");
-    console.log(bouton);
 
     perso.x=12;
     perso.y=37;

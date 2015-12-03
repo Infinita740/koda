@@ -31,7 +31,6 @@ function drag(ev){
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("id_drag");
-    console.log(data);
     data = String(data);
 
     //TODO : valeur hardcodée à changer
