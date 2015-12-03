@@ -33,8 +33,12 @@ function moveRight(){
     c.draw();
 
     c.x += 1;
+    if(testCollision()){
+        c.x-=1;
+    }
+
     c.inc_x+=1;
-    testCollision();
+    
     
     if(c.inc_x >= 25)
     {
@@ -51,6 +55,11 @@ function moveLeft(){
     c.draw();
 
     c.x -= 1;
+
+    if(testCollision()){
+        c.x+=1;
+    }
+
     c.inc_x+=1;
     
     if(c.inc_x >= 25)
@@ -97,15 +106,22 @@ function moveDown(){
 }
 
 function testCollision(){
-    var test = ctx.getImageData(perso.x, perso.y, 25, 25);
+    var test2 = ctx.getImageData(perso.x + 6, perso.y, 1, 1);
 
-    for (var i = 0; i >= 25*25; i++) {
-        if(test.data[i] == 128)
-        {
-            alert();
-            break;
-        }
-    };
+    return false;
+    //return !isWhite(test2) && !isGreen(test2) && !isBorder(test2);
+}
+
+function isBorder (imgData) {
+    return imgData.data[0] == 171 && imgData.data[1] == 171 && imgData.data[2] == 171;
+}
+
+function isGreen (imgData) {
+    return imgData.data[0] == 0 && imgData.data[1] == 128 && imgData.data[2] == 0;
+}
+
+function isWhite(imgData){
+    return imgData.data[0] == 255 && imgData.data[1] == 255 && imgData.data[2] == 255;
 }
 
 var animloop = function(){
