@@ -47,3 +47,16 @@ function generer_select_bas(nb) {
 	var test = document.getElementById("bas");
 	test.appendChild(quelquechose);
 }
+
+function generer_select_color(nb) {
+	var myArray = ['Bleu', 'Jaune', 'Orange', 'Violet', 'Blanc'];
+	var quelquechose = document.createElement('SELECT');
+	for (var i = 0; i < myArray.length; i++) {
+		var caseVoulut = document.createElement('OPTION');
+		caseVoulut.value = myArray[i];
+		caseVoulut.innerHTML = myArray[i];
+		quelquechose.appendChild(caseVoulut);
+	};
+	var test = document.getElementById("color");
+	test.appendChild(quelquechose);
+}
