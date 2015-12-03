@@ -11,13 +11,28 @@
     <input type="image" src="images/1rond.png" onclick="chosen_level = 1">
     <input type="image" src="images/2rond.png" onclick="chosen_level = 2">
     <h1>Koda</h1>
+
+
+<div id="englobe_affichage">
 		<canvas id="affichage"></canvas>
 
+        <button onclick="reset_affichage()" id="reset_button">Démarrer ▷</button>
+        <button onclick="save_level()" id="chosen_level" type="button">Save</button> <!-- // bouton pour sauvegarder la progression -->
+        <button onclick="get_level()" id="get_level" type="button">Get level</button>
+
+</div>
+
+<div id="englobe_saisie" ondrop="drop(event)">
 	<div id="saisie" ondrop="drop(event)" ondragover="allowDrop(event)">
         Code à exécuter
         <pre><code class="javascript">alert("Hello World!");
 		</code></pre>
 	</div>
+    <div id="corbeille" ondrop="drop_delete(event)" ondragover="allowDrop(event)">corbeille</div>
+    <button onclick="show_code()" id="voir_le_code" type="button">Voir le code</button> 
+    <button onclick="reset()" id="reset" type="button">Réinitialiser</button>
+
+</div>
 
 	<div id="block" ondrop="drop(event)" ondragover="allowDrop(event)">Emplacement pour les blocs de base.
         <div class="action" draggable="true" ondragstart="drag_clone(event)" id="droite">droite<script type="text/javascript">generer_select_droite(20);</script>
@@ -32,15 +47,12 @@
         <div class="action" draggable="true" ondragstart="drag_clone(event)" id="tantque">tant que</div>
     </div>
 
-    <div id="corbeille" ondrop="drop_delete(event)" ondragover="allowDrop(event)">corbeille</div>
+    
 
 
     <div id="invisible"></div>
     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-    <button onclick="reset_affichage()" id="reset_button">Démarrer ▷</button>
-
-    <button onclick="save_level()" id="chosen_level" type="button">Save</button> <!-- // bouton pour sauvegarder la progression -->
-    <button onclick="get_level()" id="get_level" type="button">Get level</button>
+    
 
     <script type="text/javascript" src="levels/level1.js"></script>
 	<script type="text/javascript" src="levels/level2.js"></script>
