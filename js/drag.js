@@ -1,6 +1,6 @@
 var elem = {"droite" : 1,
             "gauche" : 20,
-            "tantque" : 60,
+            "tantque" : 100,
             "haut" : 40,
             "bas" : 80};
 
@@ -34,7 +34,7 @@ function drop(ev) {
     data = String(data);
 
     //TODO : valeur hardcodée à changer
-    if (ev.target.id > 100 || ev.target.id == "saisie") {
+    if (ev.target.id > 99 || ev.target.id == "saisie") {
         ev.target.appendChild(document.getElementById(data));
     };
     
