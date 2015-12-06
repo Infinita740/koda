@@ -28,6 +28,7 @@
         <button onclick="reset_affichage()" id="reset_button">Démarrer ▷</button>
         <button onclick="save_level()" id="chosen_level" type="button">Sauvegarder</button> <!-- // bouton pour sauvegarder la progression -->
         <button onclick="get_level()" id="get_level" type="button">Charger</button>
+        <button onclick="reset_level()" id="reset_level" type="button">Réinitialiser</button>
         <a class="zoombox" href="lib/Zoombox/img/ppsprite.png">Test zoombox</a>
         <a class="zoombox w800 h600" href="http://grafikart.github.io/Zoombox/index.html">Test lien zoombox</a>
 
@@ -41,7 +42,7 @@
 	</div>
     <div id="corbeille" ondrop="drop_delete(event)" ondragover="allowDrop(event)">corbeille</div>
     <button onclick="show_code()" id="voir_le_code" type="button">Voir le code</button> 
-    <button onclick="reset()" id="reset" type="button">Réinitialiser</button>
+    <button onclick="delete_all()" id="delete_all" type="button">Tout supprimer</button>
 
 </div>
 
