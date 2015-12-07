@@ -84,9 +84,10 @@ function chargement_score(){
     if(typeof(Storage) !== undefined) 
     {
         resultat = JSON.parse(localStorage['resultat']);
-        for (var i = resultat[].length; i < 2; i++) {
 
-            resulat++;
+        //TODO : finir cette partie
+        for (var i = 0; i < resultat.length; i++) {
+            console.log("faire le changement d'image si le score est supérieur à 0");
         };
        
     } 
