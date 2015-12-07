@@ -28,12 +28,9 @@
 		<canvas id="affichage"></canvas>
 
         <button onclick="reset_affichage()" id="reset_button">Démarrer ▷</button>
-        <button onclick="save_level()" id="chosen_level" type="button">Sauvegarder</button> <!-- // bouton pour sauvegarder la progression -->
-        <button onclick="get_level()" id="get_level" type="button">Charger</button>
         <button onclick="reset_level()" id="reset_level" type="button">Réinitialiser</button>
-
-        <a class="zoombox" href="lib/Zoombox/img/ppsprite.png">Test zoombox</a>
-        <a class="zoombox w800 h600" href="http://grafikart.github.io/Zoombox/index.html">Test lien zoombox</a>
+        <button onclick="save_level()" id="chosen_level" type="button">Sauvegarder</button>
+        <button onclick="get_level()" id="get_level" type="button">Charger</button>
 </div>
 
 <div id="englobe_saisie" ondrop="drop(event)">
@@ -45,7 +42,6 @@
     <button onclick="delete_all()" id="delete_all" type="button">Tout supprimer</button>
 </div>
 
-<<<<<<< HEAD
 <div id="englobe_block">
     <div id="block" ondrop="drop(event)" ondragover="allowDrop(event)">Emplacement pour les blocs de base.
         <div class="action" draggable="true" ondragstart="drag_clone(event)" id="droite">droite
@@ -67,22 +63,7 @@
     <div id="erreurs">
         Ici vous trouverez vos erreurs.
     </div>
-=======
-<div id="block" ondrop="drop(event)" ondragover="allowDrop(event)">Emplacement pour les blocs de base.
-    <div class="action" draggable="true" ondragstart="drag_clone(event)" id="droite">droite
-        </div>
-    <div class="action" draggable="true" ondragstart="drag_clone(event)" id="gauche">gauche
-        </div>
-    <div class="action" draggable="true" ondragstart="drag_clone(event)" id="haut">haut
-        </div>
-    <div class="action" draggable="true" ondragstart="drag_clone(event)" id="bas">bas
-        </div>
-    <div class="action" draggable="true" ondragstart="drag_clone(event)" id="color">Changement couleur
-        </div>
-    <div class="action" draggable="true" ondragstart="drag_clone(event)" id="tantque">tant que
-        </div>
->>>>>>> origin/master
-</div>
+
 <div id="invisible">
     </div>
     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
