@@ -44,12 +44,14 @@ body
 	height: 40%;
   display: inline-block;
   background-color: limegreen;
-  min-height: 390px;
-  min-width: 30%;
+  min-height: 405px;
+  min-width: 31.8%;
 }
 #corbeille
 {
-  width:95%;
+  text-align: center;
+  float: center;
+  width: 95%;
   height: 55%;
   min-height: 50px;
   border: 1px;
@@ -62,14 +64,12 @@ body
 #voir_le_code
 {
   text-align: center;
-  width: 30%;
-  margin-bottom: 5px;
+  width: 48%;
 }
 #delete_all
 {
   text-align: center;
-  width: 30%;
-  margin-bottom: 5px;
+  width: 48%;
 }
 
 #block
@@ -91,11 +91,6 @@ body
 	float: right;
   width: 10%;
 	display: inline-block;
-}
-
-pre
-{
-	display: none;
 }
 
 .action 
@@ -121,4 +116,9 @@ pre
 #help
 {
   float:right;
+}
+
+pre
+{
+  display: none;
 }
