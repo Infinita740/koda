@@ -84,6 +84,10 @@ function chargement_score(){
     if(typeof(Storage) !== undefined) 
     {
         resultat = JSON.parse(localStorage['resultat']);
+        for (var i = resultat[].length; i < 2; i++) {
+
+            resulat++;
+        };
        
     } 
     else 
@@ -92,3 +96,13 @@ function chargement_score(){
     }
 
 }
+/*
+function change_image_level(element) {
+  var x = element.getElementsByTagName("img").item(0);
+  var v = x.getAttribute("src");
+  if(v == "images/1rond.png")
+    v = "images/1vrond.png");
+  else
+    v = "images/1rond.png");
+  x.setAttribute("src", v); 
+}*/
