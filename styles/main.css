@@ -17,8 +17,8 @@ body
 #affichage
 {
   float: left;
-  width: 100%;
-  height: 20%;
+  width: 75%;
+  height: 50%;
   display: inline-block;
   margin-right: 2%;
   /*border: 1px solid black;*/
@@ -75,7 +75,7 @@ body
 {
 	float: right;
     width: 10%;
-	height: 40%;
+	  height: 40%;
 	display: inline-block;
 }
 

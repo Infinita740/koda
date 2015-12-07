@@ -15,13 +15,14 @@
         });
     </script>
 </head>
+
 <body> 
-   
     <input type="image" src="images/1rond.png" onclick="chosen_level = 1">
     <input type="image" src="images/2rond.png" onclick="chosen_level = 2">
-    <a class="zoombox w800 h600" href="images/help2.png"><img src="images/help1.png" id="help"/></a>
-    <h1>Koda</h1>
 
+    <a class="zoombox w800 h600" href="images/help2.png"><img src="images/help1.png" id="help"/></a>
+
+    <h1>Koda</h1>
 
 <div id="englobe_affichage">
 		<canvas id="affichage"></canvas>
@@ -30,42 +31,36 @@
         <button onclick="save_level()" id="chosen_level" type="button">Sauvegarder</button> <!-- // bouton pour sauvegarder la progression -->
         <button onclick="get_level()" id="get_level" type="button">Charger</button>
         <button onclick="reset_level()" id="reset_level" type="button">Réinitialiser</button>
+
         <a class="zoombox" href="lib/Zoombox/img/ppsprite.png">Test zoombox</a>
         <a class="zoombox w800 h600" href="http://grafikart.github.io/Zoombox/index.html">Test lien zoombox</a>
-
 </div>
 
 <div id="englobe_saisie" ondrop="drop(event)">
-	<div id="saisie" ondrop="drop(event)" ondragover="allowDrop(event)">
-        Code à exécuter
-        <pre><code class="javascript">alert("Hello World!");
-		</code></pre>
-	</div>
-    <div id="corbeille" ondrop="drop_delete(event)" ondragover="allowDrop(event)">corbeille</div>
+	<div id="saisie" ondrop="drop(event)" ondragover="allowDrop(event)">Code à exécuter<pre><code class="javascript">alert("Hello World!");</code></pre>
+	    </div>
+    <div id="corbeille" ondrop="drop_delete(event)" ondragover="allowDrop(event)">corbeille
+        </div>
     <button onclick="show_code()" id="voir_le_code" type="button">Voir le code</button> 
     <button onclick="delete_all()" id="delete_all" type="button">Tout supprimer</button>
-
 </div>
 
-	<div id="block" ondrop="drop(event)" ondragover="allowDrop(event)">Emplacement pour les blocs de base.
-        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="droite">droite
+<div id="block" ondrop="drop(event)" ondragover="allowDrop(event)">Emplacement pour les blocs de base.
+    <div class="action" draggable="true" ondragstart="drag_clone(event)" id="droite">droite
         </div>
-        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="gauche">gauche
+    <div class="action" draggable="true" ondragstart="drag_clone(event)" id="gauche">gauche
         </div>
-        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="haut">haut
+    <div class="action" draggable="true" ondragstart="drag_clone(event)" id="haut">haut
         </div>
-        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="bas">bas
+    <div class="action" draggable="true" ondragstart="drag_clone(event)" id="bas">bas
         </div>
-        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="color">Changement couleur
+    <div class="action" draggable="true" ondragstart="drag_clone(event)" id="color">Changement couleur
         </div>
-
-        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="tantque">tant que</div>
+    <div class="action" draggable="true" ondragstart="drag_clone(event)" id="tantque">tant que
+        </div>
+</div>
+<div id="invisible">
     </div>
-
-    
-
-
-    <div id="invisible"></div>
     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
     
     <script type="text/javascript" src="js/main.js"></script>
@@ -78,7 +73,6 @@
     <script type="text/javascript" src="js/affichage2.js"></script>
     <script type="text/javascript" src="lib/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="js/storage.js"></script>
-    
     
 </body>
 </html>
