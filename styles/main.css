@@ -17,7 +17,7 @@ body
   float: left;
   width: 100%;
   height: 90%;
-  margin-bottom: 2px;
+  margin-bottom: 2%;
 }
 #reset_button
 {
@@ -58,9 +58,9 @@ body
   background-color: limegreen;
   border: 5px solid black;
   border-color: green;
-  min-width: 400px;
-  min-height: 500px;
-  padding-top: 5px;
+/*min-width: 400px;
+  min-height: 500px;*/
+  padding: 0.5%;
 }
 #saisie
 {
@@ -79,13 +79,12 @@ body
   float: center;
   width: 95%;
   height: 55%;
-  min-height: 50px;
   border: 1px;
   border-style:solid;
   display: inline-block;
   background-color: purple;
   margin-bottom: 5px;
-  padding: 5px;
+  padding: 0.5%;
 }
 #voir_le_code
 {
@@ -100,58 +99,67 @@ body
 
 #englobe_block
 {
-
+  float: right;
+  text-align: center;
+  width: 31.8%;
+  height: 100%;
 }
 #block
 {
   display: inline-block;
   text-align: center;
+  vertical-align: top;
   float: right;
-  width: 31.8%;
-  height: 50%;
+  width: 95%;
+  height: 100%;
   background-color: lightblue;
   border: 5px solid black;
   border-color: cyan;
 /*min-width: 400px;
   min-height: 500px;*/
-  padding: 5px;
-  margin: 8px;
+  padding: 0.5%;
+  margin-bottom: 1%;
 }
 select
 {
   text-align: center;
   float: right;
-  width: 10%;
+  width: 70px;
+  min-width: 70px;
 }
 #indication
 {
   display: inline-block;
   text-align: center;
+  vertical-align: center;
   float: right;
-  width: 31.8%;
+  width: 95%;
   height: 100%;
   background-color: orange;
   border: 5px solid black;
   border-color: red;
 /*min-width: 400px;
   min-height: 500px;*/
-  padding: 5px;
-  margin: 8px;
+  padding: 0.5%;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 #erreurs
 {
   display: inline-block;
   text-align: center;
+  vertical-align: bottom;
   float: right;
-  width: 31.8%;
+  width: 95%;
   height: 100%;
   background-color: yellow;
   border: 5px solid black;
   border-color: orange;
 /*min-width: 400px;
   min-height: 500px;*/
-  padding: 5px;
-  margin: 8px;
+  padding: 0.5%;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 
 #invisible
