@@ -263,7 +263,7 @@ function generer_deplacements()
         if (liste[i].nodeName=="DIV") {
             nom_action = liste[i].actionPerso;
 
-            var opt = liste[i].childNodes[2];
+            var opt = liste[i].childNodes[1];
             for (var j = 0; j < opt.length; j++) {
                 if (opt[j].selected) {
                     //console.log(opt[j].value); //récupération de la valeur sélectionnée
