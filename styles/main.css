@@ -6,34 +6,60 @@ body
 
 #englobe_affichage
 {
-  float: left;
-  width: 33%;
-  height: 70%;
   display: inline-block;
+  float: left;
+  width: 31.8%;
+  height: 70%;
   margin-right: 2%;
 }
 #affichage
 {
   float: left;
-  width: 75%;
-  height: 50%;
-  display: inline-block;
-  margin-right: 2%;
-  /*border: 1px solid black;*/
+  width: 100%;
+  height: 90%;
+  margin-bottom: 2px;
+}
+#reset_button
+{
+  float: left;
+  width: 240px;
+  height: 104px;
+  margin: 2px;
+}
+#reset_level
+{
+  float: right;
+  width: 240px;
+  height: 104px;
+  margin: 2px;
+}
+#chosen_level
+{
+  float: top;
+  width: 113px;
+  height: 50px;
+  margin: 2px;
+}
+#get_level
+{
+  float: bottom;
+  width: 113px;
+  height: 50px;
+  margin: 2px;
 }
 
 #englobe_saisie
 {
+  display: inline-block;
   text-align: center;
   float: left;
   width: 31.8%;
-  height: 50%;
-  display: inline-block;
+  height: 70%;
   background-color: limegreen;
   border: 5px solid black;
   border-color: green;
+  min-width: 400px;
   min-height: 500px;
-  min-width: 30%;
   padding-top: 5px;
 }
 #saisie
@@ -72,36 +98,60 @@ body
   width: 48%;
 }
 
+#englobe_block
+{
+
+}
 #block
 {
-	text-align: center;
+  display: inline-block;
+  text-align: center;
   float: right;
   width: 31.8%;
-	height: 50%;
-  display: inline-block;
+  height: 50%;
   background-color: lightblue;
   border: 5px solid black;
   border-color: cyan;
-  min-height: 500px;
-  min-width: 30%;
-  padding-top: 5px;
+/*min-width: 400px;
+  min-height: 500px;*/
+  padding: 5px;
+  margin: 8px;
 }
-#blockaffichage
+select
 {
-	float: right;
+  text-align: center;
+  float: right;
   width: 10%;
-	display: inline-block;
 }
-
-.action 
+#indication
 {
-	text-align: left;
-  display: block;
-  color: yellow;
-  background-color: #822520;
-  border: 4px solid #3D110F;
-  cursor: move;
-  margin: 5px;
+  display: inline-block;
+  text-align: center;
+  float: right;
+  width: 31.8%;
+  height: 100%;
+  background-color: orange;
+  border: 5px solid black;
+  border-color: red;
+/*min-width: 400px;
+  min-height: 500px;*/
+  padding: 5px;
+  margin: 8px;
+}
+#erreurs
+{
+  display: inline-block;
+  text-align: center;
+  float: right;
+  width: 31.8%;
+  height: 100%;
+  background-color: yellow;
+  border: 5px solid black;
+  border-color: orange;
+/*min-width: 400px;
+  min-height: 500px;*/
+  padding: 5px;
+  margin: 8px;
 }
 
 #invisible
@@ -115,7 +165,20 @@ body
 
 #help
 {
-  float:right;
+  text-align: right;
+  float: right;
+  vertical-align: top;
+}
+
+.action 
+{
+  text-align: left;
+  display: block;
+  color: yellow;
+  background-color: #822520;
+  border: 4px solid #3D110F;
+  cursor: move;
+  margin: 5px;
 }
 
 pre

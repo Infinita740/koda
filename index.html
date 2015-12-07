@@ -1,26 +1,28 @@
 <!doctype html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>Koda</title>
-    <link rel="stylesheet" type="text/css" href="styles/main.css">
-    <link rel="stylesheet" type="text/css" href="lib/highlight/styles/default.css">
-    <link href="lib/zoombox/zoombox.css" rel="stylesheet" type="text/css" media="screen">
+    <head>
+        <meta charset="utf-8">
+        <title>Koda</title>
+        <link rel="stylesheet" type="text/css" href="styles/main.css">
+        <link rel="stylesheet" type="text/css" href="lib/highlight/styles/default.css">
+        <link href="lib/zoombox/zoombox.css" rel="stylesheet" type="text/css" media="screen">
 
-    <script type="text/javascript" src="lib/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="lib/zoombox/zoombox.js"></script>
-    <script type="text/javascript">
-        jQuery(function($){
-            $('a.zoombox').zoombox();
-        });
-    </script>
-</head>
+        <script type="text/javascript" src="lib/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="lib/zoombox/zoombox.js"></script>
+        <script type="text/javascript">
+            jQuery(function($){
+                $('a.zoombox').zoombox();
+            });
+        </script>
+    </head>
 
 <body> 
+    <h2><center>Choix du level : 
     <input type="image" src="images/1rond.png" onclick="chosen_level = 1">
     <input type="image" src="images/2rond.png" onclick="chosen_level = 2">
-
+        
     <a class="zoombox w800 h600" href="images/help2.png"><img src="images/help1.png" id="help"/></a>
+        </center></h2>
 
     <h1>Koda</h1>
 
@@ -28,12 +30,9 @@
 		<canvas id="affichage"></canvas>
 
         <button onclick="reset_affichage()" id="reset_button">Démarrer ▷</button>
-        <button onclick="save_level()" id="chosen_level" type="button">Sauvegarder</button> <!-- // bouton pour sauvegarder la progression -->
-        <button onclick="get_level()" id="get_level" type="button">Charger</button>
         <button onclick="reset_level()" id="reset_level" type="button">Réinitialiser</button>
-
-        <a class="zoombox" href="lib/Zoombox/img/ppsprite.png">Test zoombox</a>
-        <a class="zoombox w800 h600" href="http://grafikart.github.io/Zoombox/index.html">Test lien zoombox</a>
+        <button onclick="save_level()" id="chosen_level" type="button">Sauvegarder</button>
+        <button onclick="get_level()" id="get_level" type="button">Charger</button>
 </div>
 
 <div id="englobe_saisie" ondrop="drop(event)">
@@ -45,19 +44,27 @@
     <button onclick="delete_all()" id="delete_all" type="button">Tout supprimer</button>
 </div>
 
-<div id="block" ondrop="drop(event)" ondragover="allowDrop(event)">Emplacement pour les blocs de base.
-    <div class="action" draggable="true" ondragstart="drag_clone(event)" id="droite">droite
-        </div>
-    <div class="action" draggable="true" ondragstart="drag_clone(event)" id="gauche">gauche
-        </div>
-    <div class="action" draggable="true" ondragstart="drag_clone(event)" id="haut">haut
-        </div>
-    <div class="action" draggable="true" ondragstart="drag_clone(event)" id="bas">bas
-        </div>
-    <div class="action" draggable="true" ondragstart="drag_clone(event)" id="color">Changement couleur
-        </div>
-    <div class="action" draggable="true" ondragstart="drag_clone(event)" id="tantque">tant que
-        </div>
+<div id="englobe_block">
+    <div id="block" ondrop="drop(event)" ondragover="allowDrop(event)">Emplacement pour les blocs de base.
+        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="droite">droite
+            </div>
+        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="gauche">gauche
+            </div>
+        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="haut">haut
+            </div>
+        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="bas">bas
+            </div>
+        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="color">Changement couleur
+            </div>
+        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="tantque">tant que
+            </div>
+    </div>
+    <div id="indication">
+        Ici vous trouverez l'aide nécessaire à la réalisation de ce niveau.
+    </div>
+    <div id="erreurs">
+    Ici vous trouverez vos erreurs.
+    </div>
 </div>
 <div id="invisible">
     </div>
