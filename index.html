@@ -27,10 +27,15 @@
 <div id="englobe_affichage">
 		<canvas id="affichage"></canvas>
 
+        <div id="bouton_start_reset">
         <button onclick="reset_affichage()" id="reset_button">Démarrer ▷</button>
         <button onclick="reset_level()" id="reset_level" type="button">Réinitialiser</button>
+        </div>
+
+        <div id="bouton_load_save">
         <button onclick="save_level()" id="chosen_level" type="button">Sauvegarder</button>
         <button onclick="get_level()" id="get_level" type="button">Charger</button>
+        </div>
 </div>
 
 <div id="englobe_saisie" ondrop="drop(event)">
