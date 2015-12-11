@@ -29,7 +29,7 @@
 
         <div id="bouton_start_reset">
         <button onclick="reset_affichage()" id="reset_button">Démarrer ▷</button>
-        <button onclick="reset_level()" id="reset_level" type="button">Réinitialiser</button>
+        <button onclick="reset_level()" id="reset_level" type="button">Supprimer la sauvegarde</button>
         </div>
 
         <div id="bouton_load_save">
@@ -44,7 +44,7 @@
     <div id="corbeille" ondrop="drop_delete(event)" ondragover="allowDrop(event)">corbeille
         </div>
     <button onclick="show_code()" id="voir_le_code" type="button">Voir le code</button> 
-    <button onclick="delete_all()" id="delete_all" type="button">Tout supprimer</button>
+    <button onclick="javascript:window.history.go(0)" id="delete_all" type="button">Tout supprimer</button>
 </div>
 
 <div id="englobe_block">
