@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>Koda</title>
@@ -17,73 +18,7 @@
 </head>
 
 <body> 
-    <input type="image" src="images/1rond.png" onclick="chosen_level = 1">
-    <input type="image" src="images/2rond.png" onclick="chosen_level = 2">
-
-    <a class="zoombox w800 h600" href="images/help2.png"><img src="images/help1.png" id="help"/></a>
-
-    <h1>Koda</h1>
-
-<div id="englobe_affichage">
-		<canvas id="affichage"></canvas>
-
-        <div id="bouton_start_reset">
-        <button onclick="reset_affichage()" id="reset_button">Démarrer ▷</button>
-        <button onclick="reset_level()" id="reset_level" type="button">Supprimer la sauvegarde</button>
-        </div>
-
-        <div id="bouton_load_save">
-        <button onclick="save_level()" id="chosen_level" type="button">Sauvegarder</button>
-        <button onclick="get_level()" id="get_level" type="button">Charger</button>
-        </div>
-</div>
-
-<div id="englobe_saisie" ondrop="drop(event)">
-	<div id="saisie" ondrop="drop(event)" ondragover="allowDrop(event)">Code à exécuter<pre><code class="javascript">alert("Hello World!");</code></pre>
-	    </div>
-    <div id="corbeille" ondrop="drop_delete(event)" ondragover="allowDrop(event)">corbeille
-        </div>
-    <a class="zoombox w800 h600" href="images/help2.png"><img src="images/help1.png" id="help"/></a>
-    <!-- <button onclick="show_code()" id="voir_le_code" type="button">Voir le code</button>  -->
-    <button onclick="javascript:window.history.go(0)" id="delete_all" type="button">Tout supprimer</button>
-</div>
-
-<div id="englobe_block">
-    <div id="block" ondrop="drop(event)" ondragover="allowDrop(event)">Emplacement pour les blocs de base.
-        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="droite">droite
-            </div>
-        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="gauche">gauche
-            </div>
-        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="haut">haut
-            </div>
-        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="bas">bas
-            </div>
-        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="color">Changement couleur
-            </div>
-        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="tantque">tant que
-            </div>
-    </div>
-    <div id="indication">
-        Ici vous trouverez l'aide nécessaire à la réalisation de ce niveau.
-    </div>
-    <div id="erreurs">
-        Ici vous trouverez vos erreurs.
-    </div>
-
-<div id="invisible">
-    </div>
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-    
-    <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="levels/level1.js"></script>
-	<script type="text/javascript" src="levels/level2.js"></script>
-    <script type="text/javascript" src="js/drag.js"></script>
-    <script type="text/javascript" src="lib/highlight/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script type="text/javascript" src="js/affichage.js"></script>
-    <script type="text/javascript" src="js/affichage2.js"></script>
-    <script type="text/javascript" src="lib/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="js/storage.js"></script>
-    
+    <img src="images/test.png">
 </body>
+
 </html>
