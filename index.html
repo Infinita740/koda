@@ -17,12 +17,13 @@
 </head>
 
 <body> 
-    <input type="image" src="images/1rond.png" onclick="chosen_level = 1">
-    <input type="image" src="images/2rond.png" onclick="chosen_level = 2">
-
     <a class="zoombox w800 h600" href="images/help2.png"><img src="images/help1.png" id="help"/></a>
-
-    <h1>Koda</h1>
+    <h1>
+        <img src="images/logo.png" id="koda"/>
+        Selection niveaux :
+        <input type="image" src="images/1rond.png" onclick="chosen_level = 1">
+        <input type="image" src="images/2rond.png" onclick="chosen_level = 2">
+    </h1> 
 
 <div id="englobe_affichage">
 		<canvas id="affichage"></canvas>

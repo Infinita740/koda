@@ -4,6 +4,12 @@ body
   background-color: #f2f2f2;
 }
 
+#koda
+{
+  width: 150px;
+  height: 80px;
+}
+
 #englobe_affichage
 {
   display: inline-block;
