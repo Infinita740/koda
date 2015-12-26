@@ -5,6 +5,7 @@ function save_level(){
 
         //code de test pour la sauvegarde (= lvl 1 réussi)
         resultat[1] = 10;
+        resultat[2] = 5;
         var resultat_JSON = JSON.stringify(resultat);
         localStorage['resultat'] = resultat_JSON;
         console.log("victoire niv 1 sauvegardée !");
@@ -66,14 +67,6 @@ resultat[2] = 0;
 function enregistrement_score(lvl, score){
     if(typeof(Storage) !== undefined) 
     {
-        /*if(chosen_level == win){
-             localStorage['level_termine','score'] = chosen_level, score[1];
-        var nodes = $("#level_termine", "#score").html();
-        console.log(nodes);
-        var nodes_json = JSON.stringify(nodes);
-        console.log(nodes_json);
-        localStorage.setItem('level_termine','score', nodes_json);*/
-        //alert("Mémorisation effectuée");
         resultat[lvl] = score;
 
         var resultat_JSON = JSON.stringify(resultat);
@@ -82,13 +75,16 @@ function enregistrement_score(lvl, score){
     } 
     else 
     {
-        alert("localStorage n'est pas supporté");
+        alert("localStorage n'est pas supporté, il sera impossible de sauvegarder la progression");
     }
 
 }
 
+var img = document.getElementById("lvl1");
+var img_path = img.src.slice(0,-9);
+
 function chargement_score(){
-    if(typeof(Storage) !== undefined) 
+    if(typeof(Storage) !== undefined && localStorage['resultat'] != undefined) 
     {
         resultat = JSON.parse(localStorage['resultat']);
 
@@ -98,24 +94,17 @@ function chargement_score(){
             if (resultat[i]) {
                 //changement de la couleur de l'image si le score est positif
                 var img = document.getElementById("lvl"+i);
-                img.src = img.src.slice(0,-4)+"v.png";
+                img.src = img_path + i + "rondv.png";
             }
         };
        
     } 
     else 
     {
-        alert("localStorage n'est pas supporté");
+        //ne pas charger si pas de score enregistré ou localstorage non supporté.
     }
 
 }
-/*
-function change_image_level(element) {
-  var x = element.getElementsByTagName("img").item(0);
-  var v = x.getAttribute("src");
-  if(v == "images/1rond.png")
-    v = "images/1vrond.png");
-  else
-    v = "images/1rond.png");
-  x.setAttribute("src", v); 
-}*/
+
+//chargement du score automatique au chargement de la page
+chargement_score();
