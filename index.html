@@ -21,8 +21,8 @@
     <h1>
         <img src="images/logo.png" id="koda"/>
         Selection niveaux :
-        <input type="image" src="images/1rond.png" onclick="chosen_level = 1">
-        <input type="image" src="images/2rond.png" onclick="chosen_level = 2">
+        <input type="image" src="images/1rond.png" onclick="chosen_level = 1" id="lvl1">
+        <input type="image" src="images/2rond.png" onclick="chosen_level = 2" id="lvl2">
     </h1> 
 
 <div id="englobe_affichage">
@@ -35,7 +35,7 @@
 
         <div id="bouton_load_save">
         <button onclick="save_level()" id="chosen_level" type="button">Sauvegarder</button>
-        <button onclick="get_level()" id="get_level" type="button">Charger</button>
+        <button onclick="chargement_score()" id="get_level" type="button">Charger</button>
         </div>
 </div>
 

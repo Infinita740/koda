@@ -2,11 +2,18 @@ function save_level(){
     if(typeof(Storage) !== undefined) 
     {
         localStorage['chosen_level'] = chosen_level;
-        var nodes = $("#saisie").html();
+
+        //code de test pour la sauvegarde (= lvl 1 réussi)
+        resultat[1] = 10;
+        var resultat_JSON = JSON.stringify(resultat);
+        localStorage['resultat'] = resultat_JSON;
+        console.log("victoire niv 1 sauvegardée !");
+
+        /*var nodes = $("#saisie").html();
         console.log(nodes);
         var nodes_json = JSON.stringify(nodes);
         console.log(nodes_json);
-        localStorage.setItem('saisie', nodes_json);
+        localStorage.setItem('saisie', nodes_json);*/
         //alert("Mémorisation effectuée");
     } 
 
@@ -22,8 +29,8 @@ function get_level(){
         if(localStorage['chosen_level']!= undefined)
         {
             //alert(localStorage['chosen_level']);
-            var x = JSON.parse(localStorage['saisie']);
-            $("#saisie").html(x);
+            //var x = JSON.parse(localStorage['saisie']);
+            //$("#saisie").html(x);
         }
     }
     else 
@@ -86,8 +93,13 @@ function chargement_score(){
         resultat = JSON.parse(localStorage['resultat']);
 
         //TODO : finir cette partie
-        for (var i = 0; i < resultat.length; i++) {
-            console.log("faire le changement d'image si le score est supérieur à 0");
+        for (var i = 1; i < resultat.length; i++) {
+            //console.log("faire le changement d'image si le score est supérieur à 0");
+            if (resultat[i]) {
+                //changement de la couleur de l'image si le score est positif
+                var img = document.getElementById("lvl"+i);
+                img.src = img.src.slice(0,-4)+"v.png";
+            }
         };
        
     } 
