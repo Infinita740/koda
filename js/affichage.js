@@ -112,8 +112,21 @@ function testCollision(){
     //return !isWhite(test2) && !isGreen(test2) && !isBorder(test2);
 }
 
+function collision2(direction){
+    if (direction == "d") {
+        //pixel du centre de la case suivante
+        var couleur = ctx.getImageData(perso.x + 13, perso.y, 1, 1);
+        if (isWhite(couleur) || isBorder(couleur)) {
+            console.log("case blanche");
+            return false;
+        }
+        console.log("collision !!!");
+        return true; //si ce n'est pas une case blanche : collision
+    };
+}
+
 function isBorder (imgData) {
-    return imgData.data[0] == 171 && imgData.data[1] == 171 && imgData.data[2] == 171;
+    return imgData.data[0] == 159 && imgData.data[1] == 159 && imgData.data[2] == 159;
 }
 
 function isGreen (imgData) {
@@ -124,10 +137,22 @@ function isWhite(imgData){
     return imgData.data[0] == 255 && imgData.data[1] == 255 && imgData.data[2] == 255;
 }
 
+var step = 0;
+
 var animloop = function(){
     if (count < deplacements.length) {
         if (deplacements[count].droite != undefined) {
-            deplacements[count].droite-=moveRight();
+            //si collision : arrêter les déplacements dans cette direction
+            if(collision2("d")){
+                deplacements[count].droite = -1;
+            }
+            else{
+                step = moveRight();
+                if(step !=0){
+                    deplacements[count].droite-=step;
+                    step = 0;
+                }
+            }
             if (deplacements[count].droite<=0) {
                 count+=1;
             }
