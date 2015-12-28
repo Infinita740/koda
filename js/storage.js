@@ -4,11 +4,8 @@ function save_level(){
         localStorage['chosen_level'] = chosen_level;
 
         //code de test pour la sauvegarde (= lvl 1 réussi)
-        resultat[1] = 10;
-        resultat[2] = 5;
-        var resultat_JSON = JSON.stringify(resultat);
-        localStorage['resultat'] = resultat_JSON;
-        console.log("victoire niv 1 sauvegardée !");
+        enregistrement_score(1, 10);
+        enregistrement_score(2, 5);
 
         /*var nodes = $("#saisie").html();
         console.log(nodes);
@@ -55,7 +52,6 @@ function reset_level(){
         for (var i = 1; i <= 2; i++) { //TO DO : remplacer par des variables globales
             enregistrement_score(i, 0);
         };
-        chargement_score();
     } 
 
     else 
@@ -77,7 +73,7 @@ function enregistrement_score(lvl, score){
 
         var resultat_JSON = JSON.stringify(resultat);
         localStorage['resultat'] = resultat_JSON;
-       
+        chargement_score();
     } 
     else 
     {
