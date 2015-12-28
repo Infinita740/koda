@@ -43,13 +43,18 @@ function get_level(){
 function reset_level(){
     if(typeof(Storage) !== undefined) 
     {
-        localStorage['chosen_level'] = chosen_level;
-        var nodes = $("#saisie").html();
-        console.log(nodes);
-        var nodes_json = JSON.stringify(nodes);
-        console.log(nodes_json);
-        localStorage.removeItem('saisie', nodes_json);
+        //localStorage['chosen_level'] = chosen_level;
+        //var nodes = $("#saisie").html();
+        //console.log(nodes);
+        //var nodes_json = JSON.stringify(nodes);
+        //console.log(nodes_json);
+        //localStorage.removeItem('saisie', nodes_json);
         //alert("Mémorisation effectuée");
+
+        //localStorage.removeItem('resultat');
+        for (var i = 1; i <= 2; i++) {
+            enregistrement_score(i, 0);
+        };
     } 
 
     else 
@@ -91,10 +96,14 @@ function chargement_score(){
         //TODO : finir cette partie
         for (var i = 1; i < resultat.length; i++) {
             //console.log("faire le changement d'image si le score est supérieur à 0");
+            var img = document.getElementById("lvl"+i);
             if (resultat[i]) {
                 //changement de la couleur de l'image si le score est positif
-                var img = document.getElementById("lvl"+i);
                 img.src = img_path + i + "rondv.png";
+            }
+            else
+            {
+                img.src = img_path + i + "rond.png";
             }
         };
        
