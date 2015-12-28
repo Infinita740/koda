@@ -113,16 +113,31 @@ function testCollision(){
 }
 
 function collision2(direction){
-    if ((direction == "d") || (direction == "g") || (direction == "h") || (direction == "b")) {
-        //pixel du centre de la case suivante
+
+    //collision à droite :
+    if (direction == "d") {
+        //pixel du centre de la case suivante (à droite)
         var couleur = ctx.getImageData(perso.x + 13, perso.y, 1, 1);
         if (isWhite(couleur) || isBorder(couleur)) {
             console.log("case blanche");
             return false;
         }
         console.log("collision !!!");
-        window.alert("Collision !!!");
-        return true; //si ce n'est pas une case blanche : collision
+        //TO DO : ajouter un message d'information dans la partie prévue à cet effet.
+        return true; //si ce n'est pas une case blanche (ou une bordure) : collision
+    };
+
+    //collision à gauche
+    if (direction == "g") {
+        //pixel du centre de la case précédente (à gauche)
+        var couleur = ctx.getImageData(perso.x - 13, perso.y, 1, 1);
+        if (isWhite(couleur) || isBorder(couleur)) {
+            console.log("case blanche");
+            return false;
+        }
+        console.log("collision !!!");
+        //TO DO : ajouter un message d'information dans la partie prévue à cet effet.
+        return true; //si ce n'est pas une case blanche (ou une bordure) : collision
     };
 }
 
