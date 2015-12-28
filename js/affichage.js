@@ -139,6 +139,32 @@ function collision2(direction){
         //TO DO : ajouter un message d'information dans la partie prévue à cet effet.
         return true; //si ce n'est pas une case blanche (ou une bordure) : collision
     };
+
+    //collision à gauche
+    if (direction == "h") {
+        //pixel du centre de la case précédente (à gauche)
+        var couleur = ctx.getImageData(perso.x, perso.y - 13, 1, 1);
+        if (isWhite(couleur) || isBorder(couleur)) {
+            console.log("case blanche");
+            return false;
+        }
+        console.log("collision !!!");
+        //TO DO : ajouter un message d'information dans la partie prévue à cet effet.
+        return true; //si ce n'est pas une case blanche (ou une bordure) : collision
+    };
+
+    //collision à gauche
+    if (direction == "b") {
+        //pixel du centre de la case précédente (à gauche)
+        var couleur = ctx.getImageData(perso.x, perso.y + 13, 1, 1);
+        if (isWhite(couleur) || isBorder(couleur)) {
+            console.log("case blanche");
+            return false;
+        }
+        console.log("collision !!!");
+        //TO DO : ajouter un message d'information dans la partie prévue à cet effet.
+        return true; //si ce n'est pas une case blanche (ou une bordure) : collision
+    };
 }
 
 function isBorder (imgData) {
@@ -192,8 +218,7 @@ var animloop = function(){
         }
 
         if (deplacements[count].haut != undefined) {
-        	deplacements[count].haut-=moveUp();
-            /*//si collision : arrêter les déplacements dans cette direction
+            //si collision : arrêter les déplacements dans cette direction
             if(collision2("h")){
                 deplacements[count].haut = -1;
             }
@@ -203,15 +228,14 @@ var animloop = function(){
                     deplacements[count].haut-=step;
                     step = 0;
                 }
-            }*/
+            }
             if (deplacements[count].haut<=0) {
                 count+=1;
             }
         }
 
         if (deplacements[count].bas != undefined) {
-        	deplacements[count].bas-=moveDown();
-            /*//si collision : arrêter les déplacements dans cette direction
+			//si collision : arrêter les déplacements dans cette direction
             if(collision2("b")){
                 deplacements[count].bas = -1;
             }
@@ -221,7 +245,7 @@ var animloop = function(){
                     deplacements[count].bas-=step;
                     step = 0;
                 }
-            }*/
+            }
             if (deplacements[count].bas<=0) {
                 count+=1;
             }
