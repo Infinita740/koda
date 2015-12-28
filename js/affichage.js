@@ -160,8 +160,7 @@ var animloop = function(){
         }
 
         if (deplacements[count].gauche != undefined) {
-        	deplacements[count].gauche-=moveLeft();
-            /*//si collision : arrêter les déplacements dans cette direction
+            //si collision : arrêter les déplacements dans cette direction
             if(collision2("g")){
                 deplacements[count].gauche = -1;
             }
@@ -171,8 +170,8 @@ var animloop = function(){
                     deplacements[count].gauche-=step;
                     step = 0;
                 }
-            }*/
-            if (deplacements[count].gauche==0) {
+            }
+            if (deplacements[count].gauche<=0) {
                 count+=1;
             }
         }
@@ -190,7 +189,7 @@ var animloop = function(){
                     step = 0;
                 }
             }*/
-            if (deplacements[count].haut==0) {
+            if (deplacements[count].haut<=0) {
                 count+=1;
             }
         }
@@ -208,7 +207,7 @@ var animloop = function(){
                     step = 0;
                 }
             }*/
-            if (deplacements[count].bas==0) {
+            if (deplacements[count].bas<=0) {
                 count+=1;
             }
         }
