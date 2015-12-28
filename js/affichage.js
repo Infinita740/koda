@@ -113,7 +113,7 @@ function testCollision(){
 }
 
 function collision2(direction){
-    if (direction == "d") {
+    if ((direction == "d") || (direction == "g") || (direction == "h") || (direction == "b")) {
         //pixel du centre de la case suivante
         var couleur = ctx.getImageData(perso.x + 13, perso.y, 1, 1);
         if (isWhite(couleur) || isBorder(couleur)) {
@@ -121,6 +121,7 @@ function collision2(direction){
             return false;
         }
         console.log("collision !!!");
+        window.alert("Collision !!!");
         return true; //si ce n'est pas une case blanche : collision
     };
 }
@@ -148,7 +149,7 @@ var animloop = function(){
             }
             else{
                 step = moveRight();
-                if(step !=0){
+                if(step != 0){
                     deplacements[count].droite-=step;
                     step = 0;
                 }
@@ -158,27 +159,59 @@ var animloop = function(){
             }
         }
 
-        else if (deplacements[count].gauche != undefined) {
-            deplacements[count].gauche-=moveLeft();
+        if (deplacements[count].gauche != undefined) {
+        	deplacements[count].gauche-=moveLeft();
+            /*//si collision : arrêter les déplacements dans cette direction
+            if(collision2("g")){
+                deplacements[count].gauche = -1;
+            }
+            else{
+                step = moveLeft();
+                if(step != 0){
+                    deplacements[count].gauche-=step;
+                    step = 0;
+                }
+            }*/
             if (deplacements[count].gauche==0) {
                 count+=1;
             }
         }
 
-        else if (deplacements[count].haut != undefined) {
-            deplacements[count].haut-=moveUp();
+        if (deplacements[count].haut != undefined) {
+        	deplacements[count].haut-=moveUp();
+            /*//si collision : arrêter les déplacements dans cette direction
+            if(collision2("h")){
+                deplacements[count].haut = -1;
+            }
+            else{
+                step = moveUp();
+                if(step != 0){
+                    deplacements[count].haut-=step;
+                    step = 0;
+                }
+            }*/
             if (deplacements[count].haut==0) {
                 count+=1;
             }
         }
 
-        else if (deplacements[count].bas != undefined) {
-            deplacements[count].bas-=moveDown();
+        if (deplacements[count].bas != undefined) {
+        	deplacements[count].bas-=moveDown();
+            /*//si collision : arrêter les déplacements dans cette direction
+            if(collision2("b")){
+                deplacements[count].bas = -1;
+            }
+            else{
+                step = moveDown();
+                if(step != 0){
+                    deplacements[count].bas-=step;
+                    step = 0;
+                }
+            }*/
             if (deplacements[count].bas==0) {
                 count+=1;
             }
         }
-        
     }
 
     else{
