@@ -135,7 +135,7 @@ function collision2(direction){
             console.log("case blanche");
             return false;
         }
-        console.log("collision !!!");
+        logErreur("collision");
         //TO DO : ajouter un message d'information dans la partie prévue à cet effet.
         return true; //si ce n'est pas une case blanche (ou une bordure) : collision
     };
@@ -148,7 +148,7 @@ function collision2(direction){
             console.log("case blanche");
             return false;
         }
-        console.log("collision !!!");
+        logErreur("collision");
         //TO DO : ajouter un message d'information dans la partie prévue à cet effet.
         return true; //si ce n'est pas une case blanche (ou une bordure) : collision
     };
@@ -161,7 +161,7 @@ function collision2(direction){
             console.log("case blanche");
             return false;
         }
-        console.log("collision !!!");
+        logErreur("collision");
         //TO DO : ajouter un message d'information dans la partie prévue à cet effet.
         return true; //si ce n'est pas une case blanche (ou une bordure) : collision
     };
@@ -177,6 +177,15 @@ function isGreen (imgData) {
 
 function isWhite(imgData){
     return imgData.data[0] == 255 && imgData.data[1] == 255 && imgData.data[2] == 255;
+}
+
+function logErreur(err){
+    if (err = "collision") {
+        var html = $("#erreurs").html();
+        html = html + "<br><strong>[collision]</strong> collision du perso avec un mur !";
+        $("#erreurs").html(html);
+        console.log(html);
+    };
 }
 
 var step = 0;
