@@ -122,6 +122,15 @@ function collision2(direction){
             console.log("case blanche");
             return false;
         }
+        if(isRed(couleur)){
+            logErreur("victoire");
+            //on avance d'une case de +
+            deplacements = [];
+            count = 0;
+            deplacements[0] = new Deplacement("droite", 1);
+            return false;
+        }
+        console.log(couleur);
         logErreur("collision");
         //TO DO : ajouter un message d'information dans la partie prévue à cet effet.
         return true; //si ce n'est pas une case blanche (ou une bordure) : collision
@@ -133,6 +142,14 @@ function collision2(direction){
         var couleur = ctx.getImageData(perso.x - 13, perso.y, 1, 1);
         if (isWhite(couleur) || isBorder(couleur)) {
             console.log("case blanche");
+            return false;
+        }
+        if(isRed(couleur)){
+            logErreur("victoire");
+            //on avance d'une case de +
+            deplacements = [];
+            count = 0;
+            deplacements[0] = new Deplacement("gauche", 1);
             return false;
         }
         logErreur("collision");
@@ -148,6 +165,14 @@ function collision2(direction){
             console.log("case blanche");
             return false;
         }
+        if(isRed(couleur)){
+            logErreur("victoire");
+            //on avance d'une case de +
+            deplacements = [];
+            count = 0;
+            deplacements[0] = new Deplacement("haut", 1);
+            return false;
+        }
         logErreur("collision");
         //TO DO : ajouter un message d'information dans la partie prévue à cet effet.
         return true; //si ce n'est pas une case blanche (ou une bordure) : collision
@@ -159,6 +184,14 @@ function collision2(direction){
         var couleur = ctx.getImageData(perso.x, perso.y + 13, 1, 1);
         if (isWhite(couleur) || isBorder(couleur)) {
             console.log("case blanche");
+            return false;
+        }
+        if(isRed(couleur)){
+            logErreur("victoire");
+            //on avance d'une case de +
+            deplacements = [];
+            count = 0;
+            deplacements[0] = new Deplacement("bas", 1);
             return false;
         }
         logErreur("collision");
@@ -179,11 +212,24 @@ function isWhite(imgData){
     return imgData.data[0] == 255 && imgData.data[1] == 255 && imgData.data[2] == 255;
 }
 
+function isRed(imgData){
+    return imgData.data[1] == 0 && imgData.data[2] == 0 && imgData.data[3] == 255;
+}
+
+var lvl_termine = false;
+
 function logErreur(err){
-    if (err = "collision") {
+    if (err == "collision") {
         var html = $("#erreurs").html();
         html = html + "<br><strong>[collision]</strong> collision du perso avec un mur !";
         $("#erreurs").html(html);
+    };
+    if (err == "victoire" && !lvl_termine) {
+        var html = $("#erreurs").html();
+        html = html + "<br><br><strong>[victoire]</strong> le niveau est terminé !";
+        $("#erreurs").html(html);
+        enregistrement_score(chosen_level, 10);
+        lvl_termine = true;
     };
 }
 
@@ -340,6 +386,7 @@ function reset_affichage(){
     perso.y=37;
     //effacement de la fenêtre des erreurs
     $("#erreurs").html("Ici vous trouverez vos erreurs :");
+    lvl_termine = false;
 }
 
 function Deplacement(direction, nombre){
