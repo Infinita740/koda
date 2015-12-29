@@ -122,7 +122,7 @@ function collision2(direction){
             console.log("case blanche");
             return false;
         }
-        console.log("collision !!!");
+        logErreur("collision");
         //TO DO : ajouter un message d'information dans la partie prévue à cet effet.
         return true; //si ce n'est pas une case blanche (ou une bordure) : collision
     };
@@ -184,7 +184,6 @@ function logErreur(err){
         var html = $("#erreurs").html();
         html = html + "<br><strong>[collision]</strong> collision du perso avec un mur !";
         $("#erreurs").html(html);
-        console.log(html);
     };
 }
 
