@@ -339,6 +339,8 @@ function reset_affichage(){
 
     perso.x=12;
     perso.y=37;
+    //effacement de la fenêtre des erreurs
+    $("#erreurs").html("Ici vous trouverez vos erreurs :");
 }
 
 function Deplacement(direction, nombre){
