@@ -1,8 +1,6 @@
 function save_level(){
     if(typeof(Storage) !== undefined) 
     {
-        localStorage['chosen_level'] = chosen_level;
-
         //code de test pour la sauvegarde (= lvl 1 réussi)
         enregistrement_score(1, 10);
         enregistrement_score(2, 5);
@@ -21,14 +19,18 @@ function save_level(){
     }
 }
 
+//défini le niveau actuel :
+function set_level(lvl){
+    chosen_level = lvl;
+    localStorage['chosen_level'] = chosen_level;
+}
+
 function get_level(){
     if(typeof(Storage) !== undefined) 
     {
         if(localStorage['chosen_level']!= undefined)
         {
-            //alert(localStorage['chosen_level']);
-            //var x = JSON.parse(localStorage['saisie']);
-            //$("#saisie").html(x);
+            set_level(localStorage['chosen_level']);
         }
     }
     else 
@@ -103,7 +105,7 @@ function chargement_score(){
                 img.src = img_path + i + "rond.png";
             }
         };
-       
+        get_level();
     } 
     else 
     {
