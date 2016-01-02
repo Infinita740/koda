@@ -430,6 +430,18 @@ function generer_deplacements()
     };
 }
 
+function changeColor(color){
+    var tab = [];
+    tab["bleu"] = "blue";
+    tab["jaune"] = "yellow";
+    tab["orange"] = "orange";
+    tab["violet"] = "purple";
+    tab["blanc"] = "white";
+
+    var c = perso;
+    c.color = tab[color];
+}
+
 reset_affichage();
 
 for (var i = 0; i < 6; i++) {
