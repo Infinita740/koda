@@ -119,7 +119,6 @@ function collision2(direction){
         //pixel du centre de la case suivante (à droite)
         var couleur = ctx.getImageData(perso.x + 13, perso.y, 1, 1);
         if (isWhite(couleur) || isBorder(couleur)) {
-            console.log("case blanche");
             return false;
         }
         if(isRed(couleur)){
@@ -141,7 +140,6 @@ function collision2(direction){
         //pixel du centre de la case précédente (à gauche)
         var couleur = ctx.getImageData(perso.x - 13, perso.y, 1, 1);
         if (isWhite(couleur) || isBorder(couleur)) {
-            console.log("case blanche");
             return false;
         }
         if(isRed(couleur)){
@@ -162,7 +160,6 @@ function collision2(direction){
         //pixel du centre de la case précédente (à gauche)
         var couleur = ctx.getImageData(perso.x, perso.y - 13, 1, 1);
         if (isWhite(couleur) || isBorder(couleur)) {
-            console.log("case blanche");
             return false;
         }
         if(isRed(couleur)){
@@ -183,7 +180,6 @@ function collision2(direction){
         //pixel du centre de la case précédente (à gauche)
         var couleur = ctx.getImageData(perso.x, perso.y + 13, 1, 1);
         if (isWhite(couleur) || isBorder(couleur)) {
-            console.log("case blanche");
             return false;
         }
         if(isRed(couleur)){
@@ -391,6 +387,7 @@ function reset_affichage(){
     //effacement de la fenêtre des erreurs
     $("#erreurs").html("Ici vous trouverez vos erreurs :");
     lvl_termine = false;
+    //remise à zéro de la couleur du perso
     changeColor("Bleu")
 }
 
@@ -438,13 +435,58 @@ function generer_deplacements()
                         }
                     };
                 };
-            };
-            //ajout du déplacement au tableau
-            console.log("deplacement : " + nom_action + " / " + num_action);
-            var d = new Deplacement(nom_action, num_action);
-            deplacements.push(d);
+                //ajout du déplacement au tableau
+                console.log("deplacement : " + nom_action + " / " + num_action);
+                var d = new Deplacement(nom_action, num_action);
+                deplacements.push(d);
+            }
+            else{
+                //récupération du nombre d'itérations
+                for (var j = 0; j < opt.length; j++) {
+                    if(opt[j].selected)
+                    {
+                        var nombre_tq = parseInt(opt[j].value);
+                    }
+                };
+                console.log("nombre tant que : " + nombre_tq);
+                var deplacements_tq = [];
+                //récupération des déplacements inclus dans le tant que.
+                for (var k = 2; k < liste[i].childNodes.length; k++) {
+                    nom_action = liste[i].childNodes[k].actionPerso;
+                    opt = liste[i].childNodes[k].childNodes[1];
+                    //récupération de la valeur du sélect :
+                    for (var j = 0; j < opt.length; j++) {
+                        if (opt[j].selected) {
+                            //récupération de la valeur sélectionnée
+                            if (nom_action != "couleur") {
+                                num_action = parseInt(opt[j].value);
+                            }
+                            else{
+                                num_action = opt[j].value;
+                            }
+                        };
+                    };
+                    //ajout du déplacement au tableau temporaire :
+                    //uniquement les valeurs sinon, copie par référence plus tard dans le code
+                    deplacements_tq.push([nom_action, num_action]);
+                };
+
+                //ajout des déplacements X fois dans le tableau de déplacements
+                console.log("depl_tq : ", deplacements_tq);
+                for (var l = 0; l < nombre_tq; l++) {
+                    //ajout des déplacements (parcours du tab temporaire)
+                    for (var m = 0; m < deplacements_tq.length; m++) {
+                        //création d'un nouvel objet déplacement
+                        console.log("dt : ", deplacements_tq[m][0], deplacements_tq[m][1]);
+                        var dt = new Deplacement(deplacements_tq[m][0], deplacements_tq[m][1]);
+                        deplacements.push(dt);  
+                    };
+                };
+            }
+            
         };
     };
+    console.log("depl : ", deplacements);
 }
 
 function changeColor(color){
