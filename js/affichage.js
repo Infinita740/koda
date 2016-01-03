@@ -425,15 +425,18 @@ function generer_deplacements()
             nom_action = liste[i].actionPerso;
 
             var opt = liste[i].childNodes[1];
-            for (var j = 0; j < opt.length; j++) {
-                if (opt[j].selected) {
-                    //console.log(opt[j].value); //récupération de la valeur sélectionnée
-                    if (nom_action != "couleur") {
-                        num_action = parseInt(opt[j].value);
-                    }
-                    else{
-                        num_action = opt[j].value;
-                    }
+
+            if (nom_action != "tantque") {
+                for (var j = 0; j < opt.length; j++) {
+                    if (opt[j].selected) {
+                        //récupération de la valeur sélectionnée
+                        if (nom_action != "couleur") {
+                            num_action = parseInt(opt[j].value);
+                        }
+                        else{
+                            num_action = opt[j].value;
+                        }
+                    };
                 };
             };
             //ajout du déplacement au tableau

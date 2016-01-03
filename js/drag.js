@@ -17,7 +17,6 @@ function drag_clone(ev) {
     
     clone.ondragstart = drag;
     clone.actionPerso = ev.target.id; //propriété contenant l'action, pouvant être lue + tard
-    console.log(clone.actionPerso);
     //clone.addEventListener("dragstart", drag, false);
 
     elem[ev.target.id]+=1;

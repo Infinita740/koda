@@ -28,7 +28,7 @@ function set_level(lvl){
 function get_level(){
     if(typeof(Storage) !== undefined) 
     {
-        if(localStorage['chosen_level']!= undefined)
+        if(localStorage['chosen_level'] != undefined)
         {
             set_level(localStorage['chosen_level']);
         }
@@ -105,12 +105,12 @@ function chargement_score(){
                 img.src = img_path + i + "rond.png";
             }
         };
-        get_level();
     } 
     else 
     {
         //ne pas charger si pas de score enregistré ou localstorage non supporté.
     }
+    get_level();
 
 }
 

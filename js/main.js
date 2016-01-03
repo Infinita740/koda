@@ -5,7 +5,6 @@ function generer_select(nb){
 
 	for (var i = 0; i < ids.length; i++) {
 		var box = document.getElementById(ids[i]);
-		console.log(ids[i]);
 
 		var select = document.createElement('SELECT');
 		for (var j = 1; j <= nb; j++) {
