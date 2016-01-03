@@ -237,6 +237,10 @@ var step = 0;
 
 var animloop = function(){
     if (count < deplacements.length) {
+        if (deplacements[count].couleur != undefined) {
+            changeColor(deplacements[count].couleur);
+            count++;
+        };
         if (deplacements[count].droite != undefined) {
             //si collision : arrêter les déplacements dans cette direction
             if(collision2("d")){
@@ -387,6 +391,7 @@ function reset_affichage(){
     //effacement de la fenêtre des erreurs
     $("#erreurs").html("Ici vous trouverez vos erreurs :");
     lvl_termine = false;
+    changeColor("Bleu")
 }
 
 function Deplacement(direction, nombre){
@@ -401,6 +406,9 @@ function Deplacement(direction, nombre){
     };
     if (direction=="bas") {
         this.bas = nombre;
+    };
+    if (direction=="couleur") {
+        this.couleur = nombre;
     };
 }
 
@@ -420,10 +428,16 @@ function generer_deplacements()
             for (var j = 0; j < opt.length; j++) {
                 if (opt[j].selected) {
                     //console.log(opt[j].value); //récupération de la valeur sélectionnée
-                    num_action = parseInt(opt[j].value);
+                    if (nom_action != "couleur") {
+                        num_action = parseInt(opt[j].value);
+                    }
+                    else{
+                        num_action = opt[j].value;
+                    }
                 };
             };
             //ajout du déplacement au tableau
+            console.log("deplacement : " + nom_action + " / " + num_action);
             var d = new Deplacement(nom_action, num_action);
             deplacements.push(d);
         };
@@ -432,11 +446,11 @@ function generer_deplacements()
 
 function changeColor(color){
     var tab = [];
-    tab["bleu"] = "blue";
-    tab["jaune"] = "yellow";
-    tab["orange"] = "orange";
-    tab["violet"] = "purple";
-    tab["blanc"] = "white";
+    tab["Bleu"] = "blue";
+    tab["Jaune"] = "yellow";
+    tab["Orange"] = "orange";
+    tab["Violet"] = "purple";
+    tab["Blanc"] = "white";
 
     var c = perso;
     c.color = tab[color];

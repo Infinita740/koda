@@ -27,9 +27,23 @@ function generer_select_color(nb) {
 		caseVoulut.innerHTML = myArray[i];
 		quelquechose.appendChild(caseVoulut);
 	};
-	var test = document.getElementById("color");
+	var test = document.getElementById("couleur");
 	test.appendChild(quelquechose);
+}
+
+function generer_select_tantque(options)
+{
+	var box = document.getElementById("tantque");
+	var select = document.createElement('SELECT');
+	for (var i = 0; i < options.length; i++) {
+		var option = document.createElement('OPTION');
+		option.value = options[i];
+		option.innerHTML = options[i];
+		select.appendChild(option);
+	};
+	box.appendChild(select);
 }
 
 generer_select(20);
 generer_select_color(5);
+generer_select_tantque(["1", "5", "10", "20", "30"]);
