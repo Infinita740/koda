@@ -54,7 +54,7 @@ function reset_level(){
         for (var i = 1; i <= 2; i++) { //TO DO : remplacer par des variables globales
             enregistrement_score(i, 0);
         };
-    } 
+    }
 
     else 
     {

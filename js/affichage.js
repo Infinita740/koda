@@ -328,6 +328,7 @@ function drawLevel(lvl){
     //choix du niveau ici
     if (lvl==1) {var level = level1;};
     if (lvl==2) {var level = level2;};
+    if (lvl==3) {var level = level3;};
 
 	//fond
     ctx.clearRect(0, 0, MAX_WIDTH, MAX_HEIGHT);
