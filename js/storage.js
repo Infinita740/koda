@@ -23,6 +23,7 @@ function save_level(){
 function set_level(lvl){
     chosen_level = lvl;
     localStorage['chosen_level'] = chosen_level;
+    indication(chosen_level);
 }
 
 function get_level(){

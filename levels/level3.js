@@ -58,3 +58,5 @@ level3.push(
         "lineTo3":[450,475]
     }
 );
+
+var indication3 = "test3";

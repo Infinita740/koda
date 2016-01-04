@@ -79,3 +79,5 @@ var level1=[
         "lineTo3":[175,350]
     }
 ];
+
+var indication1 = "Il faut déplacer la bille à travers le labyrinthe avec un minimum d'instructions, attention aux collisions avec les murs !";

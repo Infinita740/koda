@@ -229,6 +229,18 @@ function logErreur(err){
     };
 }
 
+function indication(lvl){
+
+    if (lvl==1) {var html = indication1;};
+    if (lvl==2) {var html = indication2;};
+    if (lvl==3) {var html = indication3;};
+    if (lvl==4) {var html = indication4;};
+    if (lvl==5) {var html = indication5;};
+
+    $("#indication").html(html);
+
+}
+
 var step = 0;
 
 var animloop = function(){
@@ -389,7 +401,8 @@ function reset_affichage(){
     $("#erreurs").html("Ici vous trouverez vos erreurs :");
     lvl_termine = false;
     //remise à zéro de la couleur du perso
-    changeColor("Bleu")
+    changeColor("Bleu");
+    indication(chosen_level);
 }
 
 function Deplacement(direction, nombre){
