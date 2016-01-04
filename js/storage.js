@@ -51,7 +51,7 @@ function reset_level(){
         //alert("Mémorisation effectuée");
 
         //localStorage.removeItem('resultat');
-        for (var i = 1; i <= 2; i++) { //TO DO : remplacer par des variables globales
+        for (var i = 1; i <= 5; i++) { //TO DO : remplacer par des variables globales
             enregistrement_score(i, 0);
         };
     }
