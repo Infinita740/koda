@@ -52,7 +52,7 @@ function reset_level(){
         //alert("Mémorisation effectuée");
 
         //localStorage.removeItem('resultat');
-        for (var i = 1; i <= 5; i++) { //TO DO : remplacer par des variables globales
+        for (var i = 1; i < resultat.length; i++) { //TO DO : remplacer par des variables globales
             enregistrement_score(i, 0);
         };
     }
@@ -65,8 +65,9 @@ function reset_level(){
 }
 
 var resultat = [];
-resultat[1] = 0;
-resultat[2] = 0;
+for (var i = 1; i <= 6; i++) {
+  resultat[i] = 0;
+}
 
 
 function enregistrement_score(lvl, score){
@@ -99,7 +100,7 @@ function chargement_score(){
             var img = document.getElementById("lvl"+i);
             if (resultat[i]) {
                 //changement de la couleur de l'image si le score est positif
-                img.src = img_path + i + "rondv.png";
+                img.src = img_path + i + "vrond.png";
             }
             else
             {
