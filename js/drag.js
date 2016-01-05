@@ -53,5 +53,5 @@ function drop_delete(ev){
 }
 
 function vider_corbeille(){
-    $("#corbeille").empty();
+    $("#trash").empty();
 }   

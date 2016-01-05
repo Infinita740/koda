@@ -227,11 +227,12 @@ body.dragging, body.dragging * {
   z-index: 2000;
 }
 
-ol.example li.placeholder {
+li.placeholder {
   position: relative;
-  /** More li styles **/
 }
-ol.example li.placeholder:before {
+
+li.placeholder:before {
   position: absolute;
   /** Define arrowhead **/
+  content: ">";
 }
