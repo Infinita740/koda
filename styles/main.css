@@ -4,6 +4,12 @@ body
   background-color: #f2f2f2;
 }
 
+.bouton
+{
+	width: 30px;
+	height: 30px;
+}
+
 #koda
 {
   width: 150px;
