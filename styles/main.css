@@ -4,6 +4,10 @@ body
   background-color: #f2f2f2;
 }
 
+ol #saisie{
+  background-color: blue;
+  display: inline-block;
+}
 .bouton
 {
 	width: 30px;
@@ -90,7 +94,7 @@ body
 {
 	text-align: center;
 	float: left;
-  width: 100%;
+  /*width: 100%;*/
 	height: 40%;
   display: inline-block;
   background-color: limegreen;
@@ -206,6 +210,7 @@ select
   text-align: left;
   display: block;
   color: yellow;
+  min-width: 250px;
   background-color: #822520;
   border: 4px solid #3D110F;
   cursor: move;
@@ -224,7 +229,7 @@ body.dragging, body.dragging * {
 .dragged {
   position: absolute;
   opacity: 0.5;
-  z-index: 2000;
+  z-index: 1000;
 }
 
 li.placeholder {
