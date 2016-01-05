@@ -1,3 +1,4 @@
+/*COMMIT*/
 console.log("== début du programme ==");
 
 function generer_select(nb){

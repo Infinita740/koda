@@ -1,3 +1,4 @@
+/*COMMIT*/
 var elem = {"droite" : 1,
             "gauche" : 20,
             "tantque" : 100,

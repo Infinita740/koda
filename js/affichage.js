@@ -1,3 +1,4 @@
+/*COMMIT*/
 console.log("== début affichage ==");
 var canvas = document.getElementById("affichage");
 var MAX_WIDTH=500;
