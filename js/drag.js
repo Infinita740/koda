@@ -2,6 +2,7 @@ var elem = {"droite" : 1,
             "gauche" : 20,
             "tantque" : 100,
             "haut" : 40,
+            "couleur": 60,
             "bas" : 80};
 
 function allowDrop(ev) {
@@ -49,4 +50,8 @@ function drop_delete(ev){
 
     var child = document.getElementById(data);
     saisie.removeChild(child);
+}
+
+function vider_corbeille(){
+    $("#corbeille").empty();
 }   

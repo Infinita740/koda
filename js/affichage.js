@@ -341,6 +341,9 @@ function drawLevel(lvl){
     if (lvl==1) {var level = level1;};
     if (lvl==2) {var level = level2;};
     if (lvl==3) {var level = level3;};
+    if (lvl==4) {var level = level4;};
+    if (lvl==5) {var level = level5;};
+    if (lvl==6) {var level = level6;};
 
 	//fond
     ctx.clearRect(0, 0, MAX_WIDTH, MAX_HEIGHT);
@@ -432,7 +435,7 @@ function generer_deplacements()
     var num_action;
 
     for (var i = 0; i < liste.length; i++) {
-        if (liste[i].nodeName=="DIV") {
+        if (liste[i].nodeName=="LI") {
             nom_action = liste[i].actionPerso;
 
             var opt = liste[i].childNodes[1];
