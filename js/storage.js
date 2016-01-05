@@ -1,4 +1,3 @@
-/*COMMIT*/
 function save_level(){
     if(typeof(Storage) !== undefined) 
     {
@@ -100,7 +99,7 @@ function chargement_score(){
             var img = document.getElementById("lvl"+i);
             if (resultat[i]) {
                 //changement de la couleur de l'image si le score est positif
-                img.src = img_path + i + "vrond.png";
+                img.src = img_path + i + "rondv.png";
             }
             else
             {

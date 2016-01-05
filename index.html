@@ -18,25 +18,24 @@
 </head>
 
 <body> 
+    <input type="image" src="images/1rond.png" onclick="chosen_level = 1">
+    <input type="image" src="images/2rond.png" onclick="chosen_level = 2">
+
     <a class="zoombox w800 h600" href="images/help2.png"><img src="images/help1.png" id="help"/></a>
-    <h1>
-        <img src="images/logo.png" id="koda"/>
-        Selection niveaux :
-        <input type="image" src="images/1rond.png" onclick="set_level(1)" id="lvl1">
-        <input type="image" src="images/2rond.png" onclick="set_level(2)" id="lvl2">
-        <input type="image" src="images/3rond.png" onclick="set_level(3)" id="lvl3">
-        <input type="image" src="images/3rond.png" onclick="set_level(3)" id="lvl4">
-        <input type="image" src="images/3rond.png" onclick="set_level(3)" id="lvl5">
-    </h1> 
+
+    <h1>Koda</h1>
 
 <div id="englobe_affichage">
 		<canvas id="affichage"></canvas>
 
         <div id="bouton_start_reset">
         <button onclick="reset_affichage()" id="reset_button">Démarrer ▷</button>
+        <button onclick="reset_level()" id="reset_level" type="button">Supprimer la sauvegarde</button>
         </div>
 
         <div id="bouton_load_save">
+        <button onclick="save_level()" id="chosen_level" type="button">Sauvegarder</button>
+        <button onclick="get_level()" id="get_level" type="button">Charger</button>
         </div>
 </div>
 
@@ -59,18 +58,17 @@
             </div>
         <div class="action" draggable="true" ondragstart="drag_clone(event)" id="bas">bas
             </div>
-        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="couleur">Changement couleur
+        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="color">Changement couleur
             </div>
-        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="tantque">faire (x) fois
+        <div class="action" draggable="true" ondragstart="drag_clone(event)" id="tantque">tant que
             </div>
     </div>
     <div id="indication">
         Ici vous trouverez l'aide nécessaire à la réalisation de ce niveau.
     </div>
     <div id="erreurs">
-        Ici vous trouverez vos erreurs :
+        Ici vous trouverez vos erreurs.
     </div>
-    <button onclick="reset_level()" id="reset_level" type="button">Supprimer la sauvegarde</button>
 
 <div id="invisible">
     </div>
@@ -79,10 +77,6 @@
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="levels/level1.js"></script>
 	<script type="text/javascript" src="levels/level2.js"></script>
-    <script type="text/javascript" src="levels/level3.js"></script>
-    <script type="text/javascript" src="levels/level4.js"></script>
-    <script type="text/javascript" src="levels/level5.js"></script>
-    <script type="text/javascript" src="levels/level6.js"></script>
     <script type="text/javascript" src="js/drag.js"></script>
     <script type="text/javascript" src="lib/highlight/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>

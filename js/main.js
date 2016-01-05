@@ -1,21 +1,52 @@
 /*COMMIT*/
 console.log("== début du programme ==");
 
-function generer_select(nb){
-	var ids = ["droite", "gauche", "haut", "bas"];
-
-	for (var i = 0; i < ids.length; i++) {
-		var box = document.getElementById(ids[i]);
-
-		var select = document.createElement('SELECT');
-		for (var j = 1; j <= nb; j++) {
-			var option = document.createElement('OPTION');
-			option.value = "" + j;
-			option.innerHTML = "" + j;
-			select.appendChild(option);
-		};
-		box.appendChild(select);
+function generer_select_droite(nb) {
+	var quelquechose = document.createElement('SELECT');
+	for (var i = 1; i <= 20; i++) {
+		var caseVoulut = document.createElement('OPTION');
+		caseVoulut.value = "" + i;
+		caseVoulut.innerHTML = "" + i;
+		quelquechose.appendChild(caseVoulut);
 	};
+	var test = document.getElementById("droite");
+	test.appendChild(quelquechose);
+}
+
+function generer_select_gauche(nb) {
+	var quelquechose = document.createElement('SELECT');
+	for (var i = 1; i <= 20; i++) {
+		var caseVoulut = document.createElement('OPTION');
+		caseVoulut.value = "" + i;
+		caseVoulut.innerHTML = "" + i;
+		quelquechose.appendChild(caseVoulut);
+	};
+	var test = document.getElementById("gauche");
+	test.appendChild(quelquechose);
+}
+
+function generer_select_haut(nb) {
+	var quelquechose = document.createElement('SELECT');
+	for (var i = 1; i <= 20; i++) {
+		var caseVoulut = document.createElement('OPTION');
+		caseVoulut.value = "" + i;
+		caseVoulut.innerHTML = "" + i;
+		quelquechose.appendChild(caseVoulut);
+	};
+	var test = document.getElementById("haut");
+	test.appendChild(quelquechose);
+}
+
+function generer_select_bas(nb) {
+	var quelquechose = document.createElement('SELECT');
+	for (var i = 1; i <= 20; i++) {
+		var caseVoulut = document.createElement('OPTION');
+		caseVoulut.value = "" + i;
+		caseVoulut.innerHTML = "" + i;
+		quelquechose.appendChild(caseVoulut);
+	};
+	var test = document.getElementById("bas");
+	test.appendChild(quelquechose);
 }
 
 function generer_select_color(nb) {
@@ -27,23 +58,12 @@ function generer_select_color(nb) {
 		caseVoulut.innerHTML = myArray[i];
 		quelquechose.appendChild(caseVoulut);
 	};
-	var test = document.getElementById("couleur");
+	var test = document.getElementById("color");
 	test.appendChild(quelquechose);
 }
 
-function generer_select_tantque(options)
-{
-	var box = document.getElementById("tantque");
-	var select = document.createElement('SELECT');
-	for (var i = 0; i < options.length; i++) {
-		var option = document.createElement('OPTION');
-		option.value = options[i];
-		option.innerHTML = options[i];
-		select.appendChild(option);
-	};
-	box.appendChild(select);
-}
-
-generer_select(20);
+generer_select_droite(20);
+generer_select_gauche(20);
+generer_select_haut(20);
+generer_select_bas(20);
 generer_select_color(5);
-generer_select_tantque(["1", "5", "10", "20", "30"]);

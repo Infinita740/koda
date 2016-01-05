@@ -58,5 +58,3 @@ level2.push(
         "lineTo3":[450,475]
     }
 );
-
-var indication2 = "Il faut déplacer la bille à travers le labyrinthe avec un minimum d'instructions. Utilise une boucle pour descendre l'escalier !";
