@@ -18,7 +18,6 @@ function drag_clone(ev) {
     
     clone.ondragstart = drag;
     clone.actionPerso = ev.target.id; //propriété contenant l'action, pouvant être lue + tard
-    //clone.addEventListener("dragstart", drag, false);
 
     elem[ev.target.id]+=1;
 
@@ -34,11 +33,9 @@ function drop(ev) {
     var data = ev.dataTransfer.getData("id_drag");
     data = String(data);
 
-    //TODO : valeur hardcodée à changer
     if (ev.target.id > 99 || ev.target.id == "saisie") {
         ev.target.appendChild(document.getElementById(data));
     };
-    
 }
 
 function drop_delete(ev){
