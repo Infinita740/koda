@@ -44,9 +44,9 @@
 	<ol id="saisie" class="example" ondrop="drop(event)" ondragover="allowDrop(event)">
     <!--
     Code à exécuter<pre><code class="javascript">alert("Hello World!");</code></pre> !-->
-	
-    <li id="corbeille" ondrop="drop_delete(event)" ondragover="allowDrop(event)">corbeille<ol id="trash"></ol>
-        </li></ol>
+	</ol>
+    <div id="corbeille" ondrop="drop_delete(event)" ondragover="allowDrop(event)">corbeille<ol id="trash"></ol>
+        </div>
     <a class="zoombox w800 h600" href="voir_le_code.html"><button onclick="show_code()" id="voir_le_code" type="button">Voir le code</button></a>
     <button onclick="javascript:window.history.go(0)" id="delete_all" type="button">Tout supprimer</button>
 </div>
@@ -77,7 +77,6 @@
 
 <div id="invisible">
     </div>
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
     
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="levels/level1.js"></script>
@@ -96,7 +95,13 @@
     <script type="text/javascript" src="js/storage.js"></script>
     <script type="text/javascript"> 
     $(function  () {
-        $("#saisie").sortable();
+        $("#saisie").sortable(
+        { group:'connected-group',
+        });
+        
+        $("#trash").sortable(
+        { group:'connected-group',
+        });
     });
     </script>
     
