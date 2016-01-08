@@ -435,8 +435,8 @@ function generer_deplacements()
             nom_action = liste[i].actionPerso;
             if (nom_action=="tantque")
             {
-                var opt = liste[i].childNodes[3];
-                console.log(opt);
+                var opt = liste[i].childNodes[1];
+                console.log("option tq :",opt);
             }
             else
             {
@@ -471,7 +471,8 @@ function generer_deplacements()
                 console.log("nombre tant que : " + nombre_tq);
                 var deplacements_tq = [];
                 //récupération des déplacements inclus dans le tant que.
-                var actions = liste[i].childNodes[1].childNodes;
+                var actions = liste[i].childNodes[2].childNodes;
+                console.log("actions : ", actions);
                 for (var k = 0; k < actions.length; k++) {
                     nom_action = actions[k].actionPerso;
                     opt = actions[k].childNodes[1];

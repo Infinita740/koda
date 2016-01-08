@@ -32,15 +32,12 @@ function generer_select_color(nb) {
 
 function generer_select_tantque(options)
 {
-	var box = document.getElementById("tantque");
-	var select = document.createElement('SELECT');
+	var select = "<select>";
 	for (var i = 0; i < options.length; i++) {
-		var option = document.createElement('OPTION');
-		option.value = options[i];
-		option.innerHTML = options[i];
-		select.appendChild(option);
+		select = select + "<option value=\""+options[i]+"\">"+options[i]+"</option>";
 	};
-	box.appendChild(select);
+	select += "</select>";
+	$(select).insertBefore(".inner");
 }
 
 generer_select(20);
