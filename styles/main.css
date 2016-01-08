@@ -229,15 +229,27 @@ body.dragging, body.dragging * {
 .dragged {
   position: absolute;
   opacity: 0.5;
-  z-index: 1000;
+  z-index: 2000;
 }
 
 li.placeholder {
   position: relative;
 }
 
+li{
+    list-style: none none;
+}
+
 li.placeholder:before {
-  position: absolute;
-  /** Define arrowhead **/
-  content: ">";
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    margin-top: -8px;
+    left: -8px;
+    top: -1px;
+    border: 8px solid transparent;
+    border-left-color: red;
+    border-right: none;
+    z-index: 2000;
 }

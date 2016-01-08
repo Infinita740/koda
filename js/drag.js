@@ -33,7 +33,7 @@ function drop(ev) {
     var data = ev.dataTransfer.getData("id_drag");
     data = String(data);
 
-    if (ev.target.id > 99 || ev.target.id == "saisie") {
+    if (ev.target.id == "saisie") {
         ev.target.appendChild(document.getElementById(data));
     };
 }

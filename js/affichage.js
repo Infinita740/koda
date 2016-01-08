@@ -433,8 +433,15 @@ function generer_deplacements()
     for (var i = 0; i < liste.length; i++) {
         if (liste[i].nodeName=="LI") {
             nom_action = liste[i].actionPerso;
-
-            var opt = liste[i].childNodes[1];
+            if (nom_action=="tantque")
+            {
+                var opt = liste[i].childNodes[3];
+                console.log(opt);
+            }
+            else
+            {
+                var opt = liste[i].childNodes[1];
+            }
 
             if (nom_action != "tantque") {
                 for (var j = 0; j < opt.length; j++) {
@@ -464,9 +471,10 @@ function generer_deplacements()
                 console.log("nombre tant que : " + nombre_tq);
                 var deplacements_tq = [];
                 //récupération des déplacements inclus dans le tant que.
-                for (var k = 2; k < liste[i].childNodes.length; k++) {
-                    nom_action = liste[i].childNodes[k].actionPerso;
-                    opt = liste[i].childNodes[k].childNodes[1];
+                var actions = liste[i].childNodes[1].childNodes;
+                for (var k = 0; k < actions.length; k++) {
+                    nom_action = actions[k].actionPerso;
+                    opt = actions[k].childNodes[1];
                     //récupération de la valeur du sélect :
                     for (var j = 0; j < opt.length; j++) {
                         if (opt[j].selected) {
