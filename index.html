@@ -45,7 +45,7 @@
     <!--
     Code à exécuter<pre><code class="javascript">alert("Hello World!");</code></pre> !-->
 	</ol>
-    <div id="corbeille" ondrop="drop_delete(event)" ondragover="allowDrop(event)">corbeille<ol id="trash"></ol>
+    <div id="corbeille" ondragover="allowDrop(event)">corbeille<ol id="trash"></ol>
         </div>
     <a class="zoombox w800 h600" href="voir_le_code.html"><button onclick="show_code()" id="voir_le_code" type="button">Voir le code</button></a>
     <button onclick="javascript:window.history.go(0)" id="delete_all" type="button">Tout supprimer</button>
@@ -73,7 +73,6 @@
         Ici vous trouverez vos erreurs :
     </div>
     <button onclick="reset_level()" id="reset_level" type="button">Supprimer la sauvegarde</button>
-    <button onclick="vider_corbeille()">vider la corbeille</button>
 
 <div id="invisible">
     </div>
@@ -97,11 +96,20 @@
     $(function  () {
         $("#saisie").sortable(
         { group:'connected-group',
-        });
+        onDrop:function($item, container, _super, event)
+            {
+                console.log("--->", container.target[0].id);
+                if(container.target[0].id=="trash"){
+                    vider_corbeille();
+                }
+                _super($item, container);
+            }
+    });
         
         $("#trash").sortable(
-        { group:'connected-group',
-        });
+        { 
+            group:'connected-group',
+        })
     });
     </script>
     
