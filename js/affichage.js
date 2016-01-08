@@ -240,6 +240,13 @@ function indication(lvl){
 var step = 0;
 
 var animloop = function(){
+    if(count < deplacements.length)
+    {
+        $("#reset_button").css("display", "none");
+    }
+    else{
+        $("#reset_button").css("display", "inline-block");
+    }
     if (count < deplacements.length) {
         if (deplacements[count].couleur != undefined) {
             changeColor(deplacements[count].couleur);
