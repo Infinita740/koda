@@ -118,7 +118,7 @@ function collision2(direction){
     if (direction == "d") {
         //pixel du centre de la case suivante (à droite)
         var couleur = ctx.getImageData(perso.x + 13, perso.y, 1, 1);
-        if (isWhite(couleur) || isBorder(couleur)) {
+        if (isWhite(couleur) || isBorder(couleur) || isSameColor(couleur)) {
             return false;
         }
         if(isRed(couleur)){
@@ -138,7 +138,7 @@ function collision2(direction){
     if (direction == "g") {
         //pixel du centre de la case précédente (à gauche)
         var couleur = ctx.getImageData(perso.x - 13, perso.y, 1, 1);
-        if (isWhite(couleur) || isBorder(couleur)) {
+        if (isWhite(couleur) || isBorder(couleur) || isSameColor(couleur)) {
             return false;
         }
         if(isRed(couleur)){
@@ -190,6 +190,23 @@ function collision2(direction){
         logErreur("collision");
         return true; //si ce n'est pas une case blanche (ou une bordure) : collision
     };
+}
+
+function isSameColor(imgData) {
+    var cperso = perso.color;
+    //console.log("isSameColor ->", cperso, "case suivante ->", imgData);
+    var r = imgData.data[0];
+    var g = imgData.data[1];
+    var b = imgData.data[2];
+    if(cperso == "purple"){
+        if(r==80 && g==0 && b==80){
+            return true;
+        }
+        if (r == 128 && g == 0&& b == 128) {
+            return true;
+        }
+    }
+    return false;
 }
 
 function isBorder (imgData) {
