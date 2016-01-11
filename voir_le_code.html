@@ -19,8 +19,14 @@
 
 <body style="background-color:beige;"> 
     <script type="text/javascript" src="js/voir_le_code.js"></script>
-    En y regardant de plus près, les blocs que tu as assemblés peuvent aussi être affichés en JavaScript, le langage de programmation le plus utilisé au monde:
-
+    <script type="text/javascript" src="lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <p>
+    En y regardant de plus près, les blocs que tu as assemblés peuvent aussi être écrits en JavaScript.
+    Tu peux remarquer que tous les blocs que tu a déposés ont été traduits en instructions. 
+    </p>
+    <pre><code class="javascript" id="code_js"></code></pre>
+    <script type="text/javascript">gen_code();</script>
 </body>
 
 </html>

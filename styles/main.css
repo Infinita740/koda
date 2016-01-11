@@ -217,11 +217,6 @@ select
   margin: 5px;
 }
 
-pre
-{
-  display: none;
-}
-
 body.dragging, body.dragging * {
   cursor: move !important;
 }
