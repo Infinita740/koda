@@ -106,7 +106,7 @@ function gen_code(){
         }
         if(codes[j][0] == "ftq"){
             indent = false;
-            code_affichage += "}\n";
+            code_affichage += "}\n\n";
         }
         if(codes[j][0] == "tantque"){
             indent = true;

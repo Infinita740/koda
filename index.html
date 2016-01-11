@@ -95,9 +95,11 @@
         { group:'connected-group',
         onDrop:function($item, container, _super, event)
             {
-                console.log("--->", container.target[0].id);
                 if(container.target[0].id=="trash"){
                     vider_corbeille();
+                }
+                if(parseInt($item[0].id) >= 100 && container.target[0].className=="inner"){
+                    $item[0].remove();
                 }
                 _super($item, container);
             }
