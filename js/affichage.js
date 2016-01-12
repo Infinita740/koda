@@ -240,6 +240,11 @@ function logErreur(err){
         enregistrement_score(chosen_level, 10);
         lvl_termine = true;
     };
+    if(err == "tantque"){
+        var html = $("#erreurs").html();
+        html = html + "<br><strong>[boucle]</strong> Tu n'a pas besoin de mettre une boucle dans une autre pour résoudre cet exercice.";
+        $("#erreurs").html(html);
+    }
 }
 
 function indication(lvl){

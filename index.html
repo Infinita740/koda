@@ -99,6 +99,7 @@
                     vider_corbeille();
                 }
                 if(parseInt($item[0].id) >= 100 && container.target[0].className=="inner"){
+                    logErreur("tantque");
                     $item[0].remove();
                 }
                 _super($item, container);
