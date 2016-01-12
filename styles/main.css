@@ -86,9 +86,10 @@ ol #saisie{
   background-color: limegreen;
   border: 5px solid black;
   border-color: green;
-/*min-width: 400px;
-  min-height: 500px;*/
   padding: 0.5%;
+}
+ol#saisie.example {
+    min-width: 85%;
 }
 #saisie
 {
