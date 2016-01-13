@@ -96,7 +96,7 @@ function chargement_score(){
         resultat = JSON.parse(localStorage['resultat']);
 
         //TODO : finir cette partie
-        for (var i = 1; i < resultat.length - 1; i++) {
+        for (var i = 1; i < resultat.length; i++) {
             //console.log("faire le changement d'image si le score est supérieur à 0");
             var img = document.getElementById("lvl"+i);
             if (resultat[i]) {
