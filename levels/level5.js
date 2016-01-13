@@ -64,7 +64,7 @@ var level5=[
     },
 
     {
-        "color" : "yellow",
+        "color" : "orange",
         "moveTo":[175,425],
         "lineTo1":[325,425],
         "lineTo2":[325,500],

@@ -24,6 +24,13 @@ var perso = {
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2, false);
         ctx.closePath();
         ctx.fill();
+
+        //test contour
+        //ctx.beginPath();
+        //ctx.fillStyle = "black";
+        //ctx.strokeStyle = "black";
+        //ctx.strokeRect(this.x - this.radius, this.y - this.radius, this.x - this.radius, this.y + this.radius);
+
     }
 };
 
@@ -157,7 +164,7 @@ function collision2(direction){
     if (direction == "h") {
         //pixel du centre de la case précédente (à gauche)
         var couleur = ctx.getImageData(perso.x, perso.y - 13, 1, 1);
-        if (isWhite(couleur) || isBorder(couleur)) {
+        if (isWhite(couleur) || isBorder(couleur) || isSameColor(couleur)) {
             return false;
         }
         if(isRed(couleur)){
@@ -176,7 +183,7 @@ function collision2(direction){
     if (direction == "b") {
         //pixel du centre de la case précédente (à gauche)
         var couleur = ctx.getImageData(perso.x, perso.y + 13, 1, 1);
-        if (isWhite(couleur) || isBorder(couleur)) {
+        if (isWhite(couleur) || isBorder(couleur) || isSameColor(couleur)) {
             return false;
         }
         if(isRed(couleur)){
@@ -203,6 +210,14 @@ function isSameColor(imgData) {
             return true;
         }
         if (r == 128 && g == 0&& b == 128) {
+            return true;
+        }
+    }
+    if(cperso == "orange"){
+        if(r==255 && g==165 && b==0){
+            return true;
+        }
+        if(r==159 && g==103 && b==0){
             return true;
         }
     }
