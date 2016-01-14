@@ -89,4 +89,4 @@ var level5=[
 
 ];
 
-var indication5 = "Multiple changement de couleur<br>Il faudra faire attention au mur pour éviter au maximum les collisions !<br>Pour cela tu devras compter le nombre de cases pour déplacer le personnage, ce nombre sera à introduire à droite de l'action voulue.<br><br>Par exemple si tu veux te déplacer de 5 cases sur la droite :<br>il faudra faire [droite____________[5].";";
+var indication5 = "Multiple changement de couleur<br>Il faudra faire attention au mur pour éviter au maximum les collisions !<br>Pour cela tu devras compter le nombre de cases pour déplacer le personnage, ce nombre sera à introduire à droite de l'action voulue.<br><br>Par exemple si tu veux te déplacer de 5 cases sur la droite :<br>il faudra faire [droite____________[5].";
