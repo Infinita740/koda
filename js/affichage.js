@@ -1,4 +1,3 @@
-console.log("== début affichage ==");
 var canvas = document.getElementById("affichage");
 var MAX_WIDTH=500;
 var MAX_HEIGHT=500;
@@ -9,7 +8,7 @@ var ctx = canvas.getContext("2d");
 var chosen_level = 1;
 
 var perso = {
-    // Basic attributes
+    // attributs de base
     x: 25,
     y: 37,
     inc_x:0,
@@ -17,19 +16,13 @@ var perso = {
     radius: 5,
     color: "blue",
     
-    // Function to draw the circle
+    // dessine le cercle
     draw : function() {
         ctx.beginPath();
         ctx.fillStyle = this.color;
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2, false);
         ctx.closePath();
         ctx.fill();
-
-        //test contour
-        //ctx.beginPath();
-        //ctx.fillStyle = "black";
-        //ctx.strokeStyle = "black";
-        //ctx.strokeRect(this.x - this.radius, this.y - this.radius, this.x - this.radius, this.y + this.radius);
 
     }
 };
@@ -200,7 +193,6 @@ function collision2(direction){
 
 function isSameColor(imgData) {
     var cperso = perso.color;
-    //console.log("isSameColor ->", cperso, "case suivante ->", imgData);
     var r = imgData.data[0];
     var g = imgData.data[1];
     var b = imgData.data[2];
@@ -486,7 +478,6 @@ function generer_deplacements()
             if (nom_action=="tantque")
             {
                 var opt = liste[i].childNodes[1];
-                //console.log("option tq :",opt);
             }
             else
             {
@@ -506,7 +497,6 @@ function generer_deplacements()
                     };
                 };
                 //ajout du déplacement au tableau
-                //console.log("deplacement : " + nom_action + " / " + num_action);
                 var d = new Deplacement(nom_action, num_action);
                 deplacements.push(d);
             }
@@ -518,11 +508,9 @@ function generer_deplacements()
                         var nombre_tq = parseInt(opt[j].value);
                     }
                 };
-                //console.log("nombre tant que : " + nombre_tq);
                 var deplacements_tq = [];
                 //récupération des déplacements inclus dans le tant que.
                 var actions = liste[i].childNodes[2].childNodes;
-                //console.log("actions : ", actions);
                 for (var k = 0; k < actions.length; k++) {
                     nom_action = actions[k].actionPerso;
                     opt = actions[k].childNodes[1];
@@ -544,12 +532,10 @@ function generer_deplacements()
                 };
 
                 //ajout des déplacements X fois dans le tableau de déplacements
-                //console.log("depl_tq : ", deplacements_tq);
                 for (var l = 0; l < nombre_tq; l++) {
                     //ajout des déplacements (parcours du tab temporaire)
                     for (var m = 0; m < deplacements_tq.length; m++) {
                         //création d'un nouvel objet déplacement
-                        console.log("dt : ", deplacements_tq[m][0], deplacements_tq[m][1]);
                         var dt = new Deplacement(deplacements_tq[m][0], deplacements_tq[m][1]);
                         deplacements.push(dt);  
                     };
@@ -558,7 +544,6 @@ function generer_deplacements()
             
         };
     };
-    //console.log("depl : ", deplacements);
 }
 
 function changeColor(color){

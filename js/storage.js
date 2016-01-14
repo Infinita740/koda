@@ -1,24 +1,3 @@
-function save_level(){
-    if(typeof(Storage) !== undefined) 
-    {
-        //code de test pour la sauvegarde (= lvl 1 réussi)
-        enregistrement_score(1, 10);
-        enregistrement_score(2, 5);
-
-        /*var nodes = $("#saisie").html();
-        console.log(nodes);
-        var nodes_json = JSON.stringify(nodes);
-        console.log(nodes_json);
-        localStorage.setItem('saisie', nodes_json);*/
-        //alert("Mémorisation effectuée");
-    } 
-
-    else 
-    {
-        alert("localStorage n'est pas supporté");
-    }
-}
-
 //défini le niveau actuel :
 function set_level(lvl){
     chosen_level = lvl;
@@ -44,16 +23,7 @@ function get_level(){
 function reset_level(){
     if(typeof(Storage) !== undefined) 
     {
-        //localStorage['chosen_level'] = chosen_level;
-        //var nodes = $("#saisie").html();
-        //console.log(nodes);
-        //var nodes_json = JSON.stringify(nodes);
-        //console.log(nodes_json);
-        //localStorage.removeItem('saisie', nodes_json);
-        //alert("Mémorisation effectuée");
-
-        //localStorage.removeItem('resultat');
-        for (var i = 1; i < resultat.length; i++) { //TO DO : remplacer par des variables globales
+        for (var i = 1; i < resultat.length; i++) {
             enregistrement_score(i, 0);
         };
     }
@@ -95,9 +65,7 @@ function chargement_score(){
     {
         resultat = JSON.parse(localStorage['resultat']);
 
-        //TODO : finir cette partie
         for (var i = 1; i < resultat.length; i++) {
-            //console.log("faire le changement d'image si le score est supérieur à 0");
             var img = document.getElementById("lvl"+i);
             if (resultat[i]) {
                 //changement de la couleur de l'image si le score est positif
@@ -117,5 +85,5 @@ function chargement_score(){
 
 }
 
-//chargement du score automatique au chargement de la page
+//chargement du score au chargement de la page
 chargement_score();

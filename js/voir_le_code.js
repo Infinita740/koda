@@ -31,7 +31,6 @@ function show_code()
                         }
                     };
                 };
-                console.log("-> ", nom_action, num_action);
                 tab_code.push([nom_action, num_action]);
             }
             else{
@@ -84,9 +83,7 @@ function show_code()
 }
 
 function gen_code(){
-    console.log("test");
     var codes = JSON.parse(localStorage['tab_code']);
-    console.log(codes);
     var func = {
         "droite":"deplacerDroite",
         "gauche":"deplacerGauche",

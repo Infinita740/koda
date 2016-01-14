@@ -1,5 +1,3 @@
-console.log("== début du programme ==");
-
 function generer_select(nb){
 	var ids = ["droite", "gauche", "haut", "bas"];
 
