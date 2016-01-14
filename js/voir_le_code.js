@@ -6,6 +6,7 @@ function show_code()
     var nom_action;
     var num_action;
 
+    //récupération des actions (similaire à generer_deplacements)
     for (var i = 0; i < liste.length; i++) 
     {
         if (liste[i].nodeName=="LI") 
@@ -66,7 +67,7 @@ function show_code()
                 };
                 tab_code.push([nom_action, num_action]);
                 }
-                tab_code.push(['ftq', '/']);
+                tab_code.push(['ftq', '/']); //ajout d'un élément pour spécifier la fin de la boucle (pour afficher les crochets au bon endroit)
             }
             
         }
@@ -74,6 +75,7 @@ function show_code()
     }
     if(typeof(Storage) !== undefined) 
             {
+                //enregistrement des éléments dans localStorage pour pouvoir les échanger entre les 2 fichiers.
                 localStorage['tab_code']= JSON.stringify(tab_code);
             } 
             else 
@@ -82,8 +84,10 @@ function show_code()
             }
 }
 
+//génère le code à partir du tableau des différentes actions.
 function gen_code(){
     var codes = JSON.parse(localStorage['tab_code']);
+    //correspondance entre les actions et les fonctions javascript
     var func = {
         "droite":"deplacerDroite",
         "gauche":"deplacerGauche",
@@ -93,17 +97,18 @@ function gen_code(){
     }
     var indent = false;
     var code_affichage = $("#code_js").html();
+    //ajout des codes à la zone prévue à cet effet
     for(var j = 0; j < codes.length; j++){
 
         if(codes[j][0] != "tantque" && codes[j][0] != "ftq"){
-            if(indent){code_affichage+="    "};
+            if(indent){code_affichage+="    "}; //4 espaces d'indentation si on est dans une boucle.
             
             if(codes[j][0] == "couleur") {code_affichage += func[codes[j][0]] + "(\"" + codes[j][1] + "\");\n"; }
             else {code_affichage += func[codes[j][0]] + "(" + codes[j][1] + ");\n";}
         }
         if(codes[j][0] == "ftq"){
             indent = false;
-            code_affichage += "}\n\n";
+            code_affichage += "}\n\n"; //fin de tant que : écriture d'un "{" suppression de l'indentation
         }
         if(codes[j][0] == "tantque"){
             indent = true;
