@@ -378,6 +378,7 @@ var stop_anim = function(){
 }
 
 
+//dessine le niveau dont le numéro est passé en paramètre
 function drawLevel(lvl){
     //choix du niveau ici
     if (lvl==1) {var level = level1;};
@@ -433,6 +434,7 @@ function drawLevel(lvl){
 	}
 }
 
+//remts l'affichage à zéro et redessine le niveau.
 function reset_affichage(){
     count=0;
     step=0;
@@ -450,6 +452,7 @@ function reset_affichage(){
     indication(chosen_level);
 }
 
+//objet Deplacement
 function Deplacement(direction, nombre){
     if (direction=="droite") {
         this.droite = nombre;
@@ -468,6 +471,7 @@ function Deplacement(direction, nombre){
     };
 }
 
+//génère un tableau qui contient des objets de type Deplacement grâce aux actions déposées dans la zone principale
 function generer_deplacements()
 {
     deplacements = [];
@@ -476,9 +480,11 @@ function generer_deplacements()
     var nom_action;
     var num_action;
 
+    //parcours des items de la zone "saisie"
     for (var i = 0; i < liste.length; i++) {
         if (liste[i].nodeName=="LI") {
             nom_action = liste[i].actionPerso;
+            //récupération des options (liste déroulante)
             if (nom_action=="tantque")
             {
                 var opt = liste[i].childNodes[1];
@@ -488,6 +494,7 @@ function generer_deplacements()
                 var opt = liste[i].childNodes[1];
             }
 
+            //récupération du nom de l'action
             if (nom_action != "tantque") {
                 for (var j = 0; j < opt.length; j++) {
                     if (opt[j].selected) {
@@ -504,7 +511,7 @@ function generer_deplacements()
                 var d = new Deplacement(nom_action, num_action);
                 deplacements.push(d);
             }
-            else{
+            else{ // cas d'une action de type "faire X fois"
                 //récupération du nombre d'itérations
                 for (var j = 0; j < opt.length; j++) {
                     if(opt[j].selected)
@@ -513,7 +520,7 @@ function generer_deplacements()
                     }
                 };
                 var deplacements_tq = [];
-                //récupération des déplacements inclus dans le tant que.
+                //récupération des déplacements inclus dans le tant que (boucle faire x fois)
                 var actions = liste[i].childNodes[2].childNodes;
                 for (var k = 0; k < actions.length; k++) {
                     nom_action = actions[k].actionPerso;
@@ -531,7 +538,7 @@ function generer_deplacements()
                         };
                     };
                     //ajout du déplacement au tableau temporaire :
-                    //uniquement les valeurs sinon, copie par référence plus tard dans le code
+                    //uniquement les valeurs sion crée ici des objets déplacements on les copie par référenc ensuite et ils ne sont pas dupliqués
                     deplacements_tq.push([nom_action, num_action]);
                 };
 
@@ -550,6 +557,7 @@ function generer_deplacements()
     };
 }
 
+//fonction permettant de changer la couleur du personnage
 function changeColor(color){
     var tab = [];
     tab["Bleu"] = "blue";
@@ -562,6 +570,7 @@ function changeColor(color){
     c.color = tab[color];
 }
 
+//initialisation de l'affichage.
 reset_affichage();
 
 for (var i = 0; i < 6; i++) {
