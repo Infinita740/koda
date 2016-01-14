@@ -59,4 +59,4 @@ level2.push(
     }
 );
 
-var indication2 = "Il faut déplacer la bille à travers le labyrinthe avec un minimum d'instructions. Utilise une boucle pour descendre l'escalier !";
+var indication2 = "Il faut déplacer la bille à travers le labyrinthe avec un minimum d'instructions. Utilise une boucle pour descendre l'escalier !<br>Il faudra faire attention au mur pour éviter au maximum les collisions !<br>Pour cela tu devras compter le nombre de cases pour déplacer le personnage, ce nombre sera à introduire à droite de l'action voulue.<br><br>Par exemple si tu veux te déplacer de 5 cases sur la droite :<br>il faudra faire [droite____________[5].";";
