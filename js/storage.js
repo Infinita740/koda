@@ -1,3 +1,15 @@
+//Les sauveagardes seront enregistrées dans un tableau "resultat"
+var resultat = [];
+
+//Les résultats sont initialisés pour chaque niveau à 0.
+for (var i = 1; i <= 5; i++) {
+  resultat[i] = 0;
+}
+
+//initialisations des variables pour le changement de couleur des boutons.
+var img = document.getElementById("lvl1");
+var img_path = img.src.slice(0,-9);
+
 //sauvegarde le numéro du niveau actuel
 function set_level(lvl){
     chosen_level = lvl;
@@ -21,7 +33,7 @@ function get_level(){
     }
 }
 
-//supprime le localStorage
+//supprime les scores enregistrés
 function reset_level(){
     if(typeof(Storage) !== undefined) 
     {
@@ -37,15 +49,7 @@ function reset_level(){
 
 }
 
-//Les sauveagardes seront enregistrées dans un tableau "resultat"
-var resultat = [];
-
-//Les résultats sont initialisés pour chaque niveau à 0.
-for (var i = 1; i <= 5; i++) {
-  resultat[i] = 0;
-}
-
-//sauvegarde le score du niveau terminé dans le tableau resultat
+//sauvegarde le score du niveau terminé dans le tableau resultat et dans le localStorage
 function enregistrement_score(lvl, score){
     if(typeof(Storage) !== undefined) 
     {
@@ -61,10 +65,6 @@ function enregistrement_score(lvl, score){
     }
 
 }
-
-var img = document.getElementById("lvl1");
-var img_path = img.src.slice(0,-9);
-
 
 //charge les resultats enregistrés
 //si le niveau est terminé, on change l'adresse de l'image de selection du niveau (coloration en vert)
