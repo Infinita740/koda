@@ -1,4 +1,4 @@
-//défini le niveau actuel :
+//sauvegarde le numéro du niveau actuel
 function set_level(lvl){
     chosen_level = lvl;
     localStorage['chosen_level'] = chosen_level;
@@ -6,6 +6,7 @@ function set_level(lvl){
     drawLevel(chosen_level);
 }
 
+//charge le numéro du niveau actuel
 function get_level(){
     if(typeof(Storage) !== undefined) 
     {
@@ -20,6 +21,7 @@ function get_level(){
     }
 }
 
+//supprime le localStorage
 function reset_level(){
     if(typeof(Storage) !== undefined) 
     {
@@ -35,12 +37,15 @@ function reset_level(){
 
 }
 
+//Les sauveagardes seront enregistrées dans un tableau "resultat"
 var resultat = [];
+
+//Les résultats sont initialisés pour chaque niveau à 0.
 for (var i = 1; i <= 5; i++) {
   resultat[i] = 0;
 }
 
-
+//sauvegarde le score du niveau terminé dans le tableau resultat
 function enregistrement_score(lvl, score){
     if(typeof(Storage) !== undefined) 
     {
@@ -60,6 +65,9 @@ function enregistrement_score(lvl, score){
 var img = document.getElementById("lvl1");
 var img_path = img.src.slice(0,-9);
 
+
+//charge les resultats enregistrés
+//si le niveau est terminé, on change l'adresse de l'image de selection du niveau (coloration en vert)
 function chargement_score(){
     if(typeof(Storage) !== undefined && localStorage['resultat'] != undefined) 
     {
