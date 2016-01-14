@@ -1,3 +1,4 @@
+//récupération du canvas pour l'affichage 2d
 var canvas = document.getElementById("affichage");
 var MAX_WIDTH=500;
 var MAX_HEIGHT=500;
@@ -5,10 +6,14 @@ canvas.width=MAX_WIDTH;
 canvas.height=MAX_HEIGHT;
 var ctx = canvas.getContext("2d");
 
+//initialisation des variables
 var chosen_level = 1;
+var lvl_termine = false;
+var step = 0; //sert a parcourir le tableau des déplacements.
 
+//définition de l'objet perso qui représente la bille
 var perso = {
-    // attributs de base
+    // attributs de base (position de départ, rayon etc...)
     x: 25,
     y: 37,
     inc_x:0,
@@ -27,28 +32,29 @@ var perso = {
     }
 };
 
+//déplace le personnage d'un pixel vers la doite
+//renvoie 1 si le personnage s'est déplacé d'une case entière
 function moveRight(){
-    drawLevel(chosen_level);
+    drawLevel(chosen_level); //on dessine le niveau sous le perso
     var c = perso;
-    c.draw();
+    c.draw(); // on dessine le perso
 
-    c.x += 1;
-    if(testCollision()){
-        c.x-=1;
-    }
+    c.x += 1; // déplacement d'1px vers la droite
 
     c.inc_x+=1;
     
-    
+    //si on s'est déplacé de 25px depuis la dernière case : retourne 1
     if(c.inc_x >= 25)
     {
-        c.inc_x = 0;
+        c.inc_x = 0; // inc remis à 0 car on est dans une nouvelle case
         return 1;
     }
 
     return 0;
 }
 
+//déplace le personnage d'un pixel vers la gauche
+//renvoie 1 si le personnage s'est déplacé d'une case entière
 function moveLeft(){
     drawLevel(chosen_level);
     var c = perso;
@@ -56,10 +62,6 @@ function moveLeft(){
 
     c.x -= 1;
 
-    if(testCollision()){
-        c.x+=1;
-    }
-
     c.inc_x+=1;
     
     if(c.inc_x >= 25)
@@ -71,6 +73,8 @@ function moveLeft(){
     return 0;
 }
 
+//déplace le personnage d'un pixel vers le haut
+//renvoie 1 si le personnage s'est déplacé d'une case entière
 function moveUp(){
     drawLevel(chosen_level);
     var c = perso;
@@ -88,6 +92,8 @@ function moveUp(){
     return 0;
 }
 
+//déplace le personnage d'un pixel vers le bas
+//renvoie 1 si le personnage s'est déplacé d'une case entière
 function moveDown(){
     drawLevel(chosen_level);
     var c = perso;
@@ -105,25 +111,18 @@ function moveDown(){
     return 0;
 }
 
-function testCollision(){
-    var test2 = ctx.getImageData(perso.x + 6, perso.y, 1, 1);
-
-    return false;
-    //return !isWhite(test2) && !isGreen(test2) && !isBorder(test2);
-}
-
+//fonction qui teste les collisions dans une direction donnée.
 function collision2(direction){
-
     //collision à droite :
     if (direction == "d") {
-        //pixel du centre de la case suivante (à droite)
+        //choix du pixel du centre de la case suivante (à droite) pour la comparaison
         var couleur = ctx.getImageData(perso.x + 13, perso.y, 1, 1);
         if (isWhite(couleur) || isBorder(couleur) || isSameColor(couleur)) {
-            return false;
+            return false; //renvoie faux si le personnage a le droit de faire ce déplacement (bordure, case blanche ou case de la même couleur)
         }
-        if(isRed(couleur)){
+        if(isRed(couleur)){ //cas particulier de la couleur rouge (bloc de fin)
             logErreur("victoire");
-            //on avance d'une case de +
+            //on avance d'une case de plus dans la même direction
             deplacements = [];
             count = 0;
             deplacements[0] = new Deplacement("droite", 1);
@@ -142,7 +141,6 @@ function collision2(direction){
         }
         if(isRed(couleur)){
             logErreur("victoire");
-            //on avance d'une case de +
             deplacements = [];
             count = 0;
             deplacements[0] = new Deplacement("gauche", 1);
@@ -152,7 +150,7 @@ function collision2(direction){
         return true; //si ce n'est pas une case blanche (ou une bordure) : collision
     };
 
-    //collision à gauche
+    //collision vers le haut
     if (direction == "h") {
         //pixel du centre de la case précédente (à gauche)
         var couleur = ctx.getImageData(perso.x, perso.y - 13, 1, 1);
@@ -161,7 +159,6 @@ function collision2(direction){
         }
         if(isRed(couleur)){
             logErreur("victoire");
-            //on avance d'une case de +
             deplacements = [];
             count = 0;
             deplacements[0] = new Deplacement("haut", 1);
@@ -171,7 +168,7 @@ function collision2(direction){
         return true; //si ce n'est pas une case blanche (ou une bordure) : collision
     };
 
-    //collision à gauche
+    //collision vers le bas
     if (direction == "b") {
         //pixel du centre de la case précédente (à gauche)
         var couleur = ctx.getImageData(perso.x, perso.y + 13, 1, 1);
@@ -180,7 +177,6 @@ function collision2(direction){
         }
         if(isRed(couleur)){
             logErreur("victoire");
-            //on avance d'une case de +
             deplacements = [];
             count = 0;
             deplacements[0] = new Deplacement("bas", 1);
@@ -191,12 +187,16 @@ function collision2(direction){
     };
 }
 
+
+//détecte si la couleur passée en paramètre est la même que celle du personnage
 function isSameColor(imgData) {
+    //récupération de la couleur du personnage
     var cperso = perso.color;
     var r = imgData.data[0];
     var g = imgData.data[1];
     var b = imgData.data[2];
     if(cperso == "purple"){
+        //2 tests : un pour la couleur et un pour la bordure car les bordures sur les cases colorées n'ont pas la même couleur que celles sur les cases blanches
         if(r==80 && g==0 && b==80){
             return true;
         }
@@ -223,24 +223,28 @@ function isSameColor(imgData) {
     return false;
 }
 
+//renvoir true si imgData est la couleur d'une bordure
 function isBorder (imgData) {
     return imgData.data[0] == 159 && imgData.data[1] == 159 && imgData.data[2] == 159;
 }
 
+//renvoie true si imgData représente une case verte
 function isGreen (imgData) {
     return imgData.data[0] == 0 && imgData.data[1] == 128 && imgData.data[2] == 0;
 }
 
+//renvoie true si imgData représente une case blanche
 function isWhite(imgData){
     return imgData.data[0] == 255 && imgData.data[1] == 255 && imgData.data[2] == 255;
 }
 
+//renvoie true si imgData représente une case rouge
 function isRed(imgData){
     return imgData.data[1] == 0 && imgData.data[2] == 0 && imgData.data[3] == 255;
 }
 
-var lvl_termine = false;
 
+//affiche du texte dans la zone de notification en fonction de ce qui est demandé en paramètre (collision, victoire etc...)
 function logErreur(err){
     var html = $("#erreurs").html();
     if (err == "collision") {
@@ -255,13 +259,12 @@ function logErreur(err){
     if(err == "tantque"){
         
         html = html + "<br><strong>[boucle]</strong> Tu n'a pas besoin de mettre une boucle dans une autre pour résoudre cet exercice.";
-        
     }
     $("#erreurs").html(html);
 }
 
+//charge les indications en fonction du niveau passé en paramètre
 function indication(lvl){
-
     if (lvl==1) {var html = indication1;};
     if (lvl==2) {var html = indication2;};
     if (lvl==3) {var html = indication3;};
@@ -269,12 +272,11 @@ function indication(lvl){
     if (lvl==5) {var html = indication5;};
 
     $("#indication").html(html);
-
 }
 
-var step = 0;
-
+//boucle principale d'animation
 var animloop = function(){
+    //tant que le dépacement n'est pas terminé : on cache le bouton démarrer
     if(count < deplacements.length)
     {
         $("#reset_button").css("display", "none");
@@ -282,28 +284,32 @@ var animloop = function(){
     else{
         $("#reset_button").css("display", "inline-block");
     }
+
     if (count < deplacements.length) {
+        //cas d'un changement de couleur
         if (deplacements[count].couleur != undefined) {
-            changeColor(deplacements[count].couleur);
-            count++;
+            changeColor(deplacements[count].couleur); //changement de la couleur du personnage
+            count++; //passage au déplacement suivant
         };
+        // cas d'un déplacement vers la droite
         if (deplacements[count].droite != undefined) {
             //si collision : arrêter les déplacements dans cette direction
             if(collision2("d")){
-                deplacements[count].droite = -1;
+                deplacements[count].droite = -1; //si il y a une collision, aucun autre déplacement vers la droite possible
             }
             else{
-                step = moveRight();
-                if(step != 0){
-                    deplacements[count].droite-=step;
+                step = moveRight(); //avancer d'un pixel
+                if(step != 0){ //si on a avancé d'une ou plusieurs cases.
+                    deplacements[count].droite-=step; //réduire le nombre de déplacements restants
                     step = 0;
                 }
             }
-            if (deplacements[count].droite<=0) {
+            if (deplacements[count].droite<=0) { // si les déplacements a droite sont finis, passer au suivant
                 count+=1;
             }
         }
 
+        //idem pour la gauche et les autres directions.
         if (deplacements[count].gauche != undefined) {
             //si collision : arrêter les déplacements dans cette direction
             if(collision2("g")){
@@ -359,22 +365,20 @@ var animloop = function(){
     else{
         stop_anim();
     }
-
+    //rappelle une image générée par cette fonction
     requestAnimationFrame(animloop);
 }
 
-
+//stoppe l'animation
 var stop_anim = function(){
     drawLevel(chosen_level);
     var c = perso;
     c.draw();
     clearInterval();
-    //requestAnimationFrame(stop_anim);
 }
 
 
 function drawLevel(lvl){
-    
     //choix du niveau ici
     if (lvl==1) {var level = level1;};
     if (lvl==2) {var level = level2;};
