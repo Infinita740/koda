@@ -1,4 +1,4 @@
-var level3=[
+xvar level3=[
     {   
         "color" : "green",
         "moveTo":[0,0],
@@ -78,4 +78,4 @@ level3.push(
     }
 );
 
-var indication3 = "Il faudra lors de ce niveau utiliser la boucle 'tant que' pour le terminé de la manière la plus optimale.<br>Il faudra aussi faire attention au mur pour éviter au maximum les collisions !<br>Pour cela tu devras compter le nombre de cases pour déplacer le personnage, ce nombre sera à introduire à droite de l'action voulue.<br><br>Par exemple si tu veux te déplacer de 5 cases sur la droite :<br>il faudra faire [droite____________[5].";
+var indication3 = "Il faudra lors de ce niveau utiliser la boucle 'Faire (x) fois' pour le terminer de la manière la plus optimale.<br>Il faudra aussi faire attention aux murs pour éviter au maximum les collisions !<br>Pour cela tu devras compter le nombre de cases pour déplacer le personnage, ce nombre sera à introduire à droite de l'action voulue.<br><br>Par exemple si tu veux te déplacer de 5 cases sur la droite :<br>il faudra faire [droite____________[5].";
