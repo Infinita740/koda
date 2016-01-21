@@ -1,4 +1,4 @@
-xvar level3=[
+var level3=[
     {   
         "color" : "green",
         "moveTo":[0,0],
