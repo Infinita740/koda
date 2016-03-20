@@ -7,7 +7,7 @@ canvas.height=MAX_HEIGHT;
 var ctx = canvas.getContext("2d");
 
 //initialisation des variables
-var chosen_level = 1;
+var chosen_level = 0;
 var lvl_termine = false;
 var step = 0; //sert a parcourir le tableau des déplacements.
 
@@ -265,6 +265,7 @@ function logErreur(err){
 
 //charge les indications en fonction du niveau passé en paramètre
 function indication(lvl){
+    if (lvl==0) {var html = indication0;};
     if (lvl==1) {var html = indication1;};
     if (lvl==2) {var html = indication2;};
     if (lvl==3) {var html = indication3;};
@@ -277,7 +278,7 @@ function indication(lvl){
 //boucle principale d'animation
 var animloop = function(){
     //tant que le dépacement n'est pas terminé : on cache le bouton démarrer
-    if(count < deplacements.length)
+    if (count < deplacements.length)
     {
         $("#reset_button").css("display", "none");
     }
@@ -310,7 +311,7 @@ var animloop = function(){
         }
 
         //idem pour la gauche et les autres directions.
-        if (deplacements[count].gauche != undefined) {
+        if (deplacements[count] != undefined && deplacements[count].gauche != undefined) {
             //si collision : arrêter les déplacements dans cette direction
             if(collision2("g")){
                 deplacements[count].gauche = -1;
@@ -327,7 +328,7 @@ var animloop = function(){
             }
         }
 
-        if (deplacements[count].haut != undefined) {
+        if (deplacements[count] != undefined && deplacements[count].haut != undefined) {
             //si collision : arrêter les déplacements dans cette direction
             if(collision2("h")){
                 deplacements[count].haut = -1;
@@ -344,7 +345,7 @@ var animloop = function(){
             }
         }
 
-        if (deplacements[count].bas != undefined) {
+        if (deplacements[count] != undefined && deplacements[count].bas != undefined) {
 			//si collision : arrêter les déplacements dans cette direction
             if(collision2("b")){
                 deplacements[count].bas = -1;
@@ -377,10 +378,13 @@ var stop_anim = function(){
     clearInterval();
 }
 
-
 //dessine le niveau dont le numéro est passé en paramètre
 function drawLevel(lvl){
     //choix du niveau ici
+    //if (lvl==0) {var level = level0;};
+    if (lvl==0) {
+        pikachu(custom_level);
+        return;};
     if (lvl==1) {var level = level1;};
     if (lvl==2) {var level = level2;};
     if (lvl==3) {var level = level3;};
