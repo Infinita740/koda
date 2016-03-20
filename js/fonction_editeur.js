@@ -18,10 +18,13 @@ function pencil(couleur){
 	current_color = couleur;
 }
 
-function colorier(offsetX, offsetY){
-	x = offsetX%NB_COL;
-	y = offsetY%NB_LIGNES;
-	custom_level[y*NB_LIGNES + x].color = current_color;
+function colorier(offsetX, offsetY, taille){
+    x = offsetX/taille * NB_LIGNES;
+    y = offsetY/taille * NB_COL;
+    x = Math.floor(x);
+    y = Math.floor(y);
+    console.log(x, y);
+	custom_level[x*NB_LIGNES + y].color = current_color;
 	pikachu(custom_level);
 }
 
@@ -72,5 +75,6 @@ function pikachu(pokeball){
 
 generer_tab();
 $("#affichage").click(function(ev){
-	colorier(ev.offsetX, ev.offsetY); 
+    console.log(ev);
+	colorier(ev.clientX, ev.clientY, ev.currentTarget.clientHeight); 
 });
