@@ -117,6 +117,7 @@ function collision2(direction){
     if (direction == "d") {
         //choix du pixel du centre de la case suivante (à droite) pour la comparaison
         var couleur = ctx.getImageData(perso.x + 13, perso.y, 1, 1);
+        console.log(couleur);
         if (isWhite(couleur) || isBorder(couleur) || isSameColor(couleur)) {
             return false; //renvoie faux si le personnage a le droit de faire ce déplacement (bordure, case blanche ou case de la même couleur)
         }
@@ -225,7 +226,7 @@ function isSameColor(imgData) {
 
 //renvoir true si imgData est la couleur d'une bordure
 function isBorder (imgData) {
-    return imgData.data[0] == 157 && imgData.data[1] == 157 && imgData.data[2] == 157;
+    return imgData.data[0] == 159 && imgData.data[1] == 159 && imgData.data[2] == 159;
 }
 
 //renvoie true si imgData représente une case verte
