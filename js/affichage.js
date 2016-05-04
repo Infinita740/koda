@@ -7,7 +7,13 @@ canvas.height=MAX_HEIGHT;
 var ctx = canvas.getContext("2d");
 
 //initialisation des variables
-var chosen_level = 1;
+if(level_editor)
+{
+  var chosen_level = 0;
+}
+else {
+  var chosen_level = 1;
+}
 var lvl_termine = false;
 var step = 0; //sert a parcourir le tableau des déplacements.
 
@@ -117,7 +123,6 @@ function collision2(direction){
     if (direction == "d") {
         //choix du pixel du centre de la case suivante (à droite) pour la comparaison
         var couleur = ctx.getImageData(perso.x + 13, perso.y, 1, 1);
-        console.log(couleur);
         if (isWhite(couleur) || isBorder(couleur) || isSameColor(couleur)) {
             return false; //renvoie faux si le personnage a le droit de faire ce déplacement (bordure, case blanche ou case de la même couleur)
         }

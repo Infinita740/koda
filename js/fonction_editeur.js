@@ -76,5 +76,7 @@ function pikachu(pokeball){
 generer_tab();
 $("#affichage").click(function(ev){
     console.log(ev);
-	colorier(ev.clientX, ev.clientY, ev.currentTarget.clientHeight); 
+	colorier(ev.clientX, ev.clientY, ev.currentTarget.clientHeight);
 });
+
+var level_editor = true;

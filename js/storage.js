@@ -8,7 +8,10 @@ for (var i = 1; i <= 5; i++) {
 
 //initialisations des variables pour le changement de couleur des boutons.
 var img = document.getElementById("lvl1");
-var img_path = img.src.slice(0,-9);
+if(img != null)
+  {
+    var img_path = img.src.slice(0,-9);
+  }
 
 //sauvegarde le numéro du niveau actuel
 function set_level(lvl){
@@ -20,14 +23,14 @@ function set_level(lvl){
 
 //charge le numéro du niveau actuel
 function get_level(){
-    if(typeof(Storage) !== undefined) 
+    if(typeof(Storage) !== undefined)
     {
         if(localStorage['chosen_level'] != undefined)
         {
             set_level(localStorage['chosen_level']);
         }
     }
-    else 
+    else
     {
         alert("localStorage n'est pas supporté");
     }
@@ -35,14 +38,14 @@ function get_level(){
 
 //supprime les scores enregistrés
 function reset_level(){
-    if(typeof(Storage) !== undefined) 
+    if(typeof(Storage) !== undefined)
     {
         for (var i = 1; i < resultat.length; i++) {
             enregistrement_score(i, 0);
         };
     }
 
-    else 
+    else
     {
         alert("localStorage n'est pas supporté");
     }
@@ -51,15 +54,15 @@ function reset_level(){
 
 //sauvegarde le score du niveau terminé dans le tableau resultat et dans le localStorage
 function enregistrement_score(lvl, score){
-    if(typeof(Storage) !== undefined) 
+    if(typeof(Storage) !== undefined)
     {
         resultat[lvl] = score;
 
         var resultat_JSON = JSON.stringify(resultat);
         localStorage['resultat'] = resultat_JSON;
         chargement_score();
-    } 
-    else 
+    }
+    else
     {
         alert("localStorage n'est pas supporté, il sera impossible de sauvegarder la progression");
     }
@@ -69,7 +72,7 @@ function enregistrement_score(lvl, score){
 //charge les resultats enregistrés
 //si le niveau est terminé, on change l'adresse de l'image de selection du niveau (coloration en vert)
 function chargement_score(){
-    if(typeof(Storage) !== undefined && localStorage['resultat'] != undefined) 
+    if(typeof(Storage) !== undefined && localStorage['resultat'] != undefined)
     {
         resultat = JSON.parse(localStorage['resultat']);
 
@@ -79,13 +82,13 @@ function chargement_score(){
                 //changement de la couleur de l'image si le score est positif
                 img.src = img_path + i + "vrond.png";
             }
-            else
+            elseif(img != null)
             {
                 img.src = img_path + i + "rond.png";
             }
         };
-    } 
-    else 
+    }
+    else
     {
         //ne pas charger si pas de score enregistré ou localstorage non supporté.
     }
