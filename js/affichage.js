@@ -272,11 +272,14 @@ function logErreur(err){
 //charge les indications en fonction du niveau passé en paramètre
 function indication(lvl){
     if (lvl==0) {var html = indication0;};
-    if (lvl==1) {var html = indication1;};
-    if (lvl==2) {var html = indication2;};
-    if (lvl==3) {var html = indication3;};
-    if (lvl==4) {var html = indication4;};
-    if (lvl==5) {var html = indication5;};
+    if(! level_editor)
+    {
+      if (lvl==1) {var html = indication1;};
+      if (lvl==2) {var html = indication2;};
+      if (lvl==3) {var html = indication3;};
+      if (lvl==4) {var html = indication4;};
+      if (lvl==5) {var html = indication5;};
+    }
 
     $("#indication").html(html);
 }
@@ -391,12 +394,14 @@ function drawLevel(lvl){
     if (lvl==0) {
         pikachu(custom_level);
         return;};
-    if (lvl==1) {var level = level1;};
-    if (lvl==2) {var level = level2;};
-    if (lvl==3) {var level = level3;};
-    if (lvl==4) {var level = level4;};
-    if (lvl==5) {var level = level5;};
-    if (lvl==6) {var level = level6;};
+    if(!level_editor){
+      if (lvl==1) {var level = level1;};
+      if (lvl==2) {var level = level2;};
+      if (lvl==3) {var level = level3;};
+      if (lvl==4) {var level = level4;};
+      if (lvl==5) {var level = level5;};
+      if (lvl==6) {var level = level6;};
+    }
 
 	//fond
     ctx.clearRect(0, 0, MAX_WIDTH, MAX_HEIGHT);
