@@ -87,6 +87,7 @@ function save_level(id)
 	if(typeof(Storage) !== undefined)
 	{
 		localStorage['custom_level'+id] = JSON.stringify(custom_level);
+		disable_save();
 	}
 }
 
@@ -95,7 +96,20 @@ function load_level(id)
 	if(typeof(Storage) !== undefined)
 	{
 		custom_level = JSON.parse(localStorage['custom_level'+id]);
+		disable_save();
 	}
+}
+
+function enable_save()
+{
+	var bouton = document.getElementById('save-button');
+	bouton.disabled = false;
+}
+
+function disable_save()
+{
+	var bouton = document.getElementById('save-button');
+	bouton.disabled = true;
 }
 
 var level_editor = true;

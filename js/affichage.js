@@ -258,9 +258,17 @@ function logErreur(err){
         $("#erreurs").html(html);
     };
     if (err == "victoire" && !lvl_termine) {
-        html = html + "<br><br><strong>[victoire]</strong> le niveau est terminé !";
-        enregistrement_score(chosen_level, 10);
-        lvl_termine = true;
+        console.log('victoire');
+        if(level_editor == true)
+        {
+          enable_save();
+        }
+        else
+        {
+          html = html + "<br><br><strong>[victoire]</strong> le niveau est terminé !";
+          enregistrement_score(chosen_level, 10);
+          lvl_termine = true;
+        }
     };
     if(err == "tantque"){
 
