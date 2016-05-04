@@ -82,7 +82,7 @@ function chargement_score(){
                 //changement de la couleur de l'image si le score est positif
                 img.src = img_path + i + "vrond.png";
             }
-            elseif(img != null)
+            else if(img != null)
             {
                 img.src = img_path + i + "rond.png";
             }

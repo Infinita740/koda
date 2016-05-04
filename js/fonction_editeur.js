@@ -12,6 +12,9 @@ function generer_tab(){
 			custom_level.push(new Case(i,j, "gray"));
 		}
 	}
+	custom_level[0].color = "green";
+	custom_level[1].color = "green";
+	custom_level[2].color = "green";
 }
 
 function pencil(couleur){

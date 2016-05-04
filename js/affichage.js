@@ -393,15 +393,14 @@ function drawLevel(lvl){
     //if (lvl==0) {var level = level0;};
     if (lvl==0) {
         pikachu(custom_level);
-        return;};
-    if(!level_editor){
+        return;
+      };
       if (lvl==1) {var level = level1;};
       if (lvl==2) {var level = level2;};
       if (lvl==3) {var level = level3;};
       if (lvl==4) {var level = level4;};
       if (lvl==5) {var level = level5;};
       if (lvl==6) {var level = level6;};
-    }
 
 	//fond
     ctx.clearRect(0, 0, MAX_WIDTH, MAX_HEIGHT);
