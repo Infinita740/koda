@@ -82,4 +82,21 @@ $("#affichage").click(function(ev){
 	colorier(ev.clientX, ev.clientY, ev.currentTarget.clientHeight);
 });
 
+function save_level(id)
+{
+	if(typeof(Storage) !== undefined)
+	{
+		localStorage['custom_level'+id] = JSON.stringify(custom_level);
+	}
+}
+
+function load_level(id)
+{
+	if(typeof(Storage) !== undefined)
+	{
+		custom_level = JSON.parse(localStorage['custom_level'+id]);
+	}
+}
+
 var level_editor = true;
+var custom_level_num = 1;
