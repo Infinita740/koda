@@ -138,6 +138,18 @@ ol #saisie{
   margin: 1%;
 }
 
+#englobe_saisie3
+{
+  display: inline-block;
+  text-align: center;
+  float: left;
+  width: 32%;
+  height: 70%;
+  background-color: limegreen;
+  border: 5px solid black;
+  border-color: green;
+  padding: 0.5%;
+}
 #englobe_saisie2{
   display: inline-block;
   text-align: center;
