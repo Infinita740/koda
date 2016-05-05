@@ -138,12 +138,18 @@ ol #saisie{
   margin: 1%;
 }
 
+#englobe_saisie2{
+  display: inline-block;
+  text-align: center;
+  float: left;
+  width: 33.8%;
+}
 #englobe_saisie
 {
   display: inline-block;
   text-align: center;
   float: left;
-  width: 31.8%;
+  width: 97%;
   height: 70%;
   background-color: limegreen;
   border: 5px solid black;
@@ -266,10 +272,10 @@ select
   display: :none;
 }
 
-#help
+#help img
 {
-  text-align: right;
-  vertical-align: top;
+  margin-top: 2%;
+  width: 25%;
 }
 
 .action 
