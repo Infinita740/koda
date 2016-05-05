@@ -17,8 +17,7 @@ ol #saisie{
 
 #koda
 {
-  width: 150px;
-  height: 80px;
+  width: 100%
 }
 
 #englobe_affichage
@@ -112,8 +111,12 @@ ol #saisie{
   width: 100% !important;
   height: 33px;
   margin: 0%;
-  background-color: white;
-  color: black;
+}
+#reset_sauvegarde{
+  float: left !important;
+  width: 100% !important;
+  height: 33px;
+  margin: 0%;
 }
 #charge_level
 {
@@ -128,6 +131,11 @@ ol #saisie{
   width: 46.5%;
   height: 33px;
   margin: 1%;  
+}
+#accueil_button{
+  width: 70%;
+  height: 33px;
+  margin: 1%;
 }
 
 #englobe_saisie
@@ -307,4 +315,18 @@ li.placeholder:before {
     border-left-color: red;
     border-right: none;
     z-index: 2000;
+}
+
+#selecteur_de_niveau{
+  font-size: 24px;
+  margin-top: -3%;
+}
+
+#editeur_de_niveau{
+  margin-left: 42%;
+}
+
+#logo_koda{
+  margin-top: 5%;
+  width: 100%;
 }
