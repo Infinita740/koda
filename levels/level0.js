@@ -8,4 +8,4 @@ var level0=[
     }, 
 ];
 
-var indication0 =   "Pour créer un niveau, il faut choisir une couleur, modifier les cases de la grille en fonction du chemin que l'on veu tracer et essayer !";
+var indication0 =   "Pour créer un niveau, il faut choisir une couleur qui servira à créer le chemin. Vous pouvez tester ce niveau en temps réel avec les commandes de droite. Pour sauvegarder le niveau que vous venez de créer il faut que celui-ci soit valider (pour cela vous devait faire en sorte que le personnage touche une case rouge). Une fois le niveau valider vous pouvez le sauvegarder pour le rejouer ulterieurement en utilisant le bouton Charger.";
