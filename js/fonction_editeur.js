@@ -52,26 +52,36 @@ function pikachu(pokeball){
     };
 
     //quadrillage
-	var i=25;
-	while(i<MAX_WIDTH){
-		ctx.beginPath();
-		ctx.moveTo(i,0);
-		ctx.lineTo(i,MAX_HEIGHT);
-		ctx.lineWidth=0.75;
-		ctx.strokeStyle="black";
-		ctx.stroke();
-		i=i+25;
-	}
-	var g = 25;
-	while(g<MAX_HEIGHT){
-		ctx.beginPath();
-		ctx.moveTo(0,g);
-		ctx.lineTo(MAX_WIDTH,g);
-		ctx.lineWidth=0.75;
-		ctx.strokeStyle="black";
-		ctx.stroke();
-		g=g+25;
-	}
+    var i=25;
+    var h=1;
+    while(i<MAX_WIDTH){
+        ctx.beginPath();
+        ctx.moveTo(i,0);
+        ctx.lineTo(i,MAX_HEIGHT);
+        ctx.lineWidth=0.75;
+        ctx.strokeStyle="black";
+        ctx.stroke();
+        ctx.font = "9pt Verdana";
+        ctx.fillStyle = "white";
+        ctx.fillText(h, 480, i+18);
+        i=i+25;
+        h=h+1;
+    }
+    var g = 25;
+    var j = 1;
+    while(g<MAX_HEIGHT){
+        ctx.beginPath();
+        ctx.moveTo(0,g);
+        ctx.lineTo(MAX_WIDTH,g);
+        ctx.lineWidth=0.75;
+        ctx.strokeStyle="black";
+        ctx.stroke();
+        ctx.font = "9pt Verdana";
+        ctx.fillStyle = "white";
+        ctx.fillText(j, g+5, MAX_WIDTH-482);
+        g=g+25;
+        j=j+1;
+    }
 
 	perso.draw();
 }
