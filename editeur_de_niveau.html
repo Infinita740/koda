@@ -6,7 +6,14 @@
     <title>Koda</title>
 
     <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <link href="lib/Zoombox/zoombox.css" rel="stylesheet" type="text/css" media="screen">
     <script type="text/javascript" src="lib/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="lib/Zoombox/zoombox.js"></script>
+    <script type="text/javascript">
+    jQuery(function($){
+        $('a.zoombox').zoombox();
+    });
+    </script>
 
 </head>
 <body>
@@ -15,7 +22,7 @@
         <canvas id="affichage"></canvas>
 
         <div id="selection_chemin">
-        <p>Selectionne tes couleurs pour crée tes chemins : </p>
+        <p>Sélectionne tes couleurs pour crée tes chemins : </p>
         </div>
 
         <div id="bouton_blanc">
@@ -73,7 +80,7 @@
             </li>
             <li class="action" draggable="true" ondragstart="drag_clone(event)" id="bas">bas
             </li>
-            <li class="action" draggable="true" ondragstart="drag_clone(event)" id="couleur">Changement couleur
+            <li class="action" draggable="true" ondragstart="drag_clone(event)" id="couleur">Changement de couleur
             </li>
             <li class="action" draggable="true" ondragstart="drag_clone(event)" id="tantque">faire (x) fois<ol class="inner"></ol>
             </li>
