@@ -17,20 +17,19 @@
     var level_editor = false;
     </script>
 </head>
-
+<a class="zoombox w800 h600" href="images/help4.png"><img src="images/help1.png" id="help"/></a>
 <body>
-    <a class="zoombox w800 h600" href="images/help4.png"><img src="images/help1.png" id="help"/></a>
-        <div id="editeur_de_niveau">
-            <a href="editeur_de_niveau.html"> <img src="images/level_editor.png"/></a><br>
-        </div>
-        <div id="selecteur_de_niveau">
-            Selection niveaux :
-                <input class="bouton" type="image" src="images/1rond.png" onclick="set_level(1)" id="lvl1">
-                <input class="bouton" type="image" src="images/2rond.png" onclick="set_level(2)" id="lvl2">
-                <input class="bouton" type="image" src="images/3rond.png" onclick="set_level(3)" id="lvl3">
-                <input class="bouton" type="image" src="images/4rond.png" onclick="set_level(4)" id="lvl4">
-                <input class="bouton" type="image" src="images/5rond.png" onclick="set_level(5)" id="lvl5">
-        </div>
+    <div id="editeur_de_niveau">
+        <a href="editeur_de_niveau.html"> <img src="images/level_editor.png"/></a><br>
+    </div>
+    <div id="selecteur_de_niveau">
+        Selection niveaux :
+            <input class="bouton" type="image" src="images/1rond.png" onclick="set_level(1)" id="lvl1">
+            <input class="bouton" type="image" src="images/2rond.png" onclick="set_level(2)" id="lvl2">
+            <input class="bouton" type="image" src="images/3rond.png" onclick="set_level(3)" id="lvl3">
+            <input class="bouton" type="image" src="images/4rond.png" onclick="set_level(4)" id="lvl4">
+            <input class="bouton" type="image" src="images/5rond.png" onclick="set_level(5)" id="lvl5">
+    </div>
 
     <div id="englobe_affichage">
     	<canvas id="affichage"></canvas>
@@ -39,9 +38,6 @@
         <button onclick="reset_affichage()" id="demarrage_button">Démarrer ▷</button>
         </div>
         <button onclick="reset_level()" id="reset_sauvegarde" type="button">Supprimer la sauvegarde</button>
-
-        <div id="bouton_load_save">
-        </div>
     </div>
 
     <div id="englobe_saisie" ondrop="drop(event)">
