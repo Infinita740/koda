@@ -56,7 +56,7 @@
         <ol id="saisie" class="example" ondrop="drop(event)" ondragover="allowDrop(event)">
         </ol>
 
-        <div id="corbeille" ondragover="allowDrop(event)"><img src="images/poubelle.png"/><ol id="trash"></ol>
+        <div id="corbeille" ondragover="allowDrop(event)">Corbeille<ol id="trash"></ol>
         </div>
 
         <a class="zoombox w800 h600" href="voir_le_code.html"><button onclick="show_code()" id="voir_le_code" type="button">Voir le code</button></a>
@@ -85,7 +85,7 @@
         <div id="erreurs">Ici vous trouverez vos erreurs :
         </div>
 
-        <button id="save-button" onclick="save_level(custom_level_num)" id="enregistre_level" type="button">Enregistrer</button>
+        <button id="save-button" onclick="save_level(custom_level_num)" id="enregistre_level" type="button" disabled>Enregistrer</button>
         <button onclick="load_level(custom_level_num)" id="charge_level" type="button">Charger</button>
 
         <div id="invisible">
@@ -99,6 +99,8 @@
     <script type="text/javascript" src="js/drag.js"></script>
     <script type="text/javascript" src="js/affichage.js"></script>
     <script type="text/javascript" src="lib/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="lib/jquery-sortable.js"></script>
+    <script type="text/javascript" src="js/corbeille.js"></script>
 
 </body>
 </html>

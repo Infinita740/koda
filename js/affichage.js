@@ -219,7 +219,7 @@ function isSameColor(imgData) {
         }
     }
     if(cperso == "blue"){
-        if(r==0 && g==0 && b==159){
+        if(r==0 && g==0 && (b==159 || b == 160)){
             return true;
         }
         if(r==0 && g==0 && b==255){
@@ -231,7 +231,10 @@ function isSameColor(imgData) {
 
 //renvoir true si imgData est la couleur d'une bordure
 function isBorder (imgData) {
-    return imgData.data[0] == 159 && imgData.data[1] == 159 && imgData.data[2] == 159;
+    var r = imgData.data[0];
+    var g = imgData.data[0];
+    var b = imgData.data[0];
+    return (r == 159 || r == 160) && (g == 159 || g == 160) && (b == 159 || b == 160);
 }
 
 //renvoie true si imgData représente une case verte

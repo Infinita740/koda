@@ -15,6 +15,9 @@ if(img != null)
 
 //sauvegarde le numéro du niveau actuel
 function set_level(lvl){
+    perso.x = 12;
+    perso.y = 37;
+    perso.color = "blue";
     chosen_level = lvl;
     localStorage['chosen_level'] = chosen_level;
     indication(chosen_level);

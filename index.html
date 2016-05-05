@@ -46,7 +46,7 @@
     	<ol id="saisie" class="example" ondrop="drop(event)" ondragover="allowDrop(event)">
     	</ol>
 
-        <div id="corbeille" ondragover="allowDrop(event)"><img src="images/poubelle.png"/><ol id="trash"></ol>
+        <div id="corbeille" ondragover="allowDrop(event)">Corbeille<ol id="trash"></ol>
         </div>
 
         <a class="zoombox w800 h600" href="voir_le_code.html"><button onclick="show_code()" id="voir_le_code" type="button">Voir le code</button></a>
@@ -95,29 +95,6 @@
     <script type="text/javascript" src="lib/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="lib/jquery-sortable.js"></script>
     <script type="text/javascript" src="js/storage.js"></script>
-    <script type="text/javascript">
-        $(function  () {
-            //axtivation de la bibliothèque jquery sortable
-            $("#saisie").sortable(
-            { group:'connected-group',
-            onDrop:function($item, container, _super, event)
-                {
-                    if(container.target[0].id=="trash"){
-                        vider_corbeille(); //si on déplace un élément sur la corbeille on la vide
-                    }
-                    if(parseInt($item[0].id) >= 100 && container.target[0].className=="inner"){
-                        logErreur("tantque");
-                        $item[0].remove(); //suppression des items tanque déplacés dans d'autres boucles car les boucles imbriquées ne sont pas prises en charge
-                    }
-                    _super($item, container);
-                }
-        });
-
-            $("#trash").sortable(
-            {
-                group:'connected-group',
-            })
-        });
-    </script>
+    <script type="text/javascript" src="js/corbeille.js"></script>
 </body>
 </html>
