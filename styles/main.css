@@ -38,6 +38,11 @@ ol #saisie{
   margin-bottom: 2%;
 }
 
+#selection_chemin{
+  margin-left: 5% !important;
+  font-size: 25px;
+  margin-bottom: -3% !important;
+}
 #white_button {
   float: left !important;
   width: 50% !important;
