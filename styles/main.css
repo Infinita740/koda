@@ -107,6 +107,14 @@ ol #saisie{
   background-color: white;
   color: black;
 }
+#demarrage_button{
+  float: left !important;
+  width: 100% !important;
+  height: 33px;
+  margin: 0%;
+  background-color: white;
+  color: black;
+}
 #charge_level
 {
   float: left;
