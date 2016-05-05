@@ -17,7 +17,7 @@
     var level_editor = false;
     </script>
 </head>
-<a class="zoombox w800 h600" href="images/help4.png"><img src="images/help1.png" id="help"/></a>
+
 <body>
     <div id="editeur_de_niveau">
         <a href="editeur_de_niveau.html"> <img src="images/level_editor.png"/></a><br>
@@ -40,15 +40,20 @@
         <button onclick="reset_level()" id="reset_sauvegarde" type="button">Supprimer la sauvegarde</button>
     </div>
 
-    <div id="englobe_saisie" ondrop="drop(event)">
-    	<ol id="saisie" class="example" ondrop="drop(event)" ondragover="allowDrop(event)">
-    	</ol>
+    <div id="englobe_saisie2">
+        <div id="englobe_saisie" ondrop="drop(event)">
+    	   <ol id="saisie" class="example" ondrop="drop(event)" ondragover="allowDrop(event)">
+    	   </ol>
 
-        <div id="corbeille" ondragover="allowDrop(event)">Corbeille<ol id="trash"></ol>
+            <div id="corbeille" ondragover="allowDrop(event)">Corbeille<ol id="trash"></ol>
+            </div>
+
+            <a class="zoombox w800 h600" href="voir_le_code.html"><button onclick="show_code()" id="voir_le_code" type="button">Voir le code</button></a>
+            <button onclick="javascript:window.history.go(0)" id="delete_all" type="button">Tout supprimer</button>
+        <div id="help">
+                <a class="zoombox w800 h600" href="images/help4.png"><img src="images/help1.png"/></a>
         </div>
-
-        <a class="zoombox w800 h600" href="voir_le_code.html"><button onclick="show_code()" id="voir_le_code" type="button">Voir le code</button></a>
-        <button onclick="javascript:window.history.go(0)" id="delete_all" type="button">Tout supprimer</button>
+        </div>
     </div>
 
     <div id="englobe_block">
@@ -69,12 +74,14 @@
 
         <div id="indication">
         </div>
+
         <div id="erreurs">Ici vous trouverez vos erreurs :
         </div>
 
         <div id="logo_koda">
-        <img src="images/logo.png" id="koda"/>
+            <img src="images/logo.png" id="koda"/>
         </div>
+        
         <div id="invisible">
         </div>
 

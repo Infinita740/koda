@@ -269,7 +269,6 @@ select
 #help
 {
   text-align: right;
-  float: right;
   vertical-align: top;
 }
 
@@ -329,4 +328,7 @@ li.placeholder:before {
 #logo_koda{
   margin-top: 5%;
   width: 100%;
+}
+#englobe_saisie2{
+  height: 100%;
 }
