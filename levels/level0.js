@@ -8,4 +8,4 @@ var level0=[
     }, 
 ];
 
-var indication0 =   "test";
+var indication0 =   "Pour créer un niveau, il faut choisir une couleur, modifier les cases de la grille en fonction du chemin que l'on veu tracer et essayer !";
